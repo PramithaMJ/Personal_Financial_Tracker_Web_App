@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import logger from "./utils/logger.js";
+import { connect } from "./utils/database.connection.js";
 
 import "dotenv/config";
 
@@ -20,4 +21,5 @@ app.listen(PORT, () => {
   // logger.info("This is testing");
   // logger.warn("This is warning");
   console.log(`🚀🎯Server is up and running on PORT ${PORT}`);
+  connect();
 });

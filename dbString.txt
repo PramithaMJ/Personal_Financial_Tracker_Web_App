@@ -1,0 +1,1 @@
+mongodb+srv://lpramithamj:Jayasooriya_LPM_3990@personal-finance-tracke.1z9pbxe.mongodb.net/pft-db?retryWrites=true&w=majority
