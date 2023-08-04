@@ -5,23 +5,19 @@ import logger from "../utils/logger.js";
 let database;
 
 const connect = async () => {
-  const MONGOBD_URL = config.DB_CONNECTION_STRING;
+  const MONGODB_URL = config.DB_CONNECTION_STRING;
 
-  try {
-    if (database) return;
+  if (database) return;
 
-    mongoose
-      .connect(MONGOBD_URL)
-      .then((connection) => {
-        database = connection;
-        logger.info("Database Synced");
-      })
-      .catch((err) => {
-        logger.error(` ${err.message}`);
-      });
-  } catch (error) {
-    console.log(error);
-  }
+  mongoose
+    .connect(MONGODB_URL)
+    .then((connection) => {
+      database = connection;
+      logger.info("Database Synced");
+    })
+    .catch((err) => {
+      logger.error(`${err.message}`);
+    });
 };
 
 export { connect };
