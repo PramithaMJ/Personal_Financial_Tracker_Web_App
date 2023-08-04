@@ -6,8 +6,8 @@ import session from "express-session";
 import logger from "./utils/logger.js";
 import config from "./configs/index.js";
 import { connect } from "./utils/database.connection.js";
-import { googleAuth } from "./configs/google.auth.js";
-import { routesInit } from "./api/routes";
+import { googleAuth } from "./configs/google_auth.js";
+import { routesInit } from "./api/routes/index.js";
 
 
 const app = express();
@@ -45,3 +45,7 @@ app.listen(PORT, async () => {
   routesInit(app, passport);
   googleAuth(passport);
 });
+
+
+
+//1:59:53
