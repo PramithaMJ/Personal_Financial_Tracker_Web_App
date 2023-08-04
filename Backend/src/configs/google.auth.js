@@ -28,7 +28,6 @@ const googleAuth = (passport) => {
         if (user) {
           return callback(null, user);
         }
-
         User.create(userObj)
           .then((user) => {
             return callback(null, user);
