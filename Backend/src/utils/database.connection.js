@@ -13,9 +13,7 @@ const connect = async () => {
     mongoose
       .connect(MONGOBD_URL)
       .then((connection) => {
-        console.log("d");
         database = connection;
-
         logger.info("Database Synced");
       })
       .catch((err) => {
