@@ -3,12 +3,12 @@ const routesInit = (app, passport) => {
     "/auth/google",
     passport.authenticate("google", { scope: ["profile", "email"] })
   );
-  app.get("/auth/google/callback", passport.authenticate)("google", {
+  app.get("/auth/google/callback", passport.authenticate("google", {
     failureRedirect: "/login",
-  }),
-    (req, res) => {
-      console.log("User Authenticated");
+  }), (req, res) => {
+    console.log("User Authenticated");
     //  res.redirect("/");
-    };
+  });
 };
-export default { routesInit };
+
+export default routesInit;
