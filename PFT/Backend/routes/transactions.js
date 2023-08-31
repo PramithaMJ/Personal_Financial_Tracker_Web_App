@@ -16,9 +16,9 @@ const router = express.Router();
 router.use(express.json());
 
 router
-  .post("/add-income", addIncomes)
+  .post("/add-incomes", addIncomes)
   .get("/get-incomes", getIncomes)
-  .delete("/delete-income/:id", deleteIncomes)
+  .delete("/delete-incomes/:id", deleteIncomes)
   .post("/add-expenses", addExpenses)
   .get("/get-expenses", getExpenses)
   .delete("/delete-expenses/:id", deleteExpenses);
