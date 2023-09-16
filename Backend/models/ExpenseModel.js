@@ -8,16 +8,19 @@ const ExpenseSchema = new mongoose.Schema(
     trim: true,
     maxlength: [50, "Title can not be more than 50 characters"],
     },
+    
     amount: {
     type: Number,
     required: true,
     trim: true,
     maxlength: [20, "Amount can not be more than 8 characters"],
     },
+
     type: {
     type: String,
     default: "income",
     },
+
     date: {
     type: Date,
     required: true,
