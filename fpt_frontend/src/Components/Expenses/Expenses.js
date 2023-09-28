@@ -1,18 +1,51 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { styled } from 'styled-components';
 import { InnerLayout } from '../../styles/Layout';
+import { useGlobalContext } from '../../context/globalContext';
+import ExpenseForm from '../Expenses/ExpenseForm';
+import IncomeItem from '../IncomeItem/IncomeItem';
 
 function Expenses() {
+    const {addIncome,expenses, getExpenses, deleteExpense, totalExpenses} = useGlobalContext()
+
+    useEffect(() =>{
+        getExpenses()
+    }, [])
+    
   return (
-    <ExpenseStyled>
+    <ExpensesStyled>
         <InnerLayout>
-            
+        <h1>Expenses</h1>
+        <h2 className="total-income">Total Expenses: <span>${totalExpenses()}</span></h2>
+                <div className="income-content">
+                    <div className="form-container">
+                        <ExpenseForm />
+                    </div>
+                    <div className="incomes">
+                        {expenses.map((income) => {
+                            const {_id, title, amount, date, category, description, type} = income;
+                            console.log(income)
+                            return <IncomeItem
+                            key={_id}
+                            id={_id} 
+                            title={title} 
+                            description={description} 
+                            amount={amount} 
+                            date={date} 
+                            type={type}
+                            category={category} 
+                            indicatorColor="var(--color-green)"
+                            deleteItem={deleteExpense}
+                        />
+                    })}
+                    </div>
+                </div>
         </InnerLayout>
-    </ExpenseStyled>
+    </ExpensesStyled>
   )
 }
 
-const ExpenseStyled = styled.div`
+const ExpensesStyled = styled.div`
     display: flex;
     overflow: auto;
     .total-income{

@@ -19,7 +19,7 @@ router
   .post("/add-incomes", addIncomes)
   .get("/get-incomes", getIncomes)
   .delete("/delete-incomes/:id", deleteIncomes)
-  .post("/add-expenses", addExpenses)
+  .post("/add-expense", addExpenses)
   .get("/get-expenses", getExpenses)
   .delete("/delete-expenses/:id", deleteExpenses);
 
