@@ -14,9 +14,9 @@ function Dashboard() {
         getExpenses()
     }, [])
 
-  return (
-    <DashboardStyled>
-         <InnerLayout>
+    return (
+        <DashboardStyled>
+            <InnerLayout>
                 <h1>All Transactions</h1>
                 <div className="stats-con">
                     <div className="chart-con">
@@ -65,8 +65,8 @@ function Dashboard() {
                     </div>
                 </div>
             </InnerLayout>
-    </DashboardStyled>
-  )
+        </DashboardStyled>
+    )
 }
 
 const DashboardStyled = styled.div`

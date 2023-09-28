@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import { dateFormat } from '../../utils/dateFormat';
 import { bitcoin, book, calender, card, circle, clothing, comment, dollar, food, freelance, medical, money, piggy, stocks, takeaway, trash, tv, users, yt } from '../../utils/Icons';
 import Button from '../Button/Button';
-import { dateFormat } from '../../utils/dateFormat';
 
 function IncomeItem({
     id,
@@ -39,7 +39,6 @@ function IncomeItem({
         }
     }
 
-
     const expenseCatIcon = () => {
         switch (category) {
             case 'education':
@@ -68,7 +67,7 @@ function IncomeItem({
     return (
         <IncomeItemStyled indicator={indicatorColor}>
             <div className="icon">
-            {type === 'expense' ? expenseCatIcon() : categoryIcon()}
+                {type === 'expense' ? expenseCatIcon() : categoryIcon()}
             </div>
             <div className="content">
                 <h5>{title}</h5>

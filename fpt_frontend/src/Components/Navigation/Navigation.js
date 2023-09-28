@@ -11,7 +11,7 @@ function Navigation({active, setActive}) {
             <div className="user-con">
                 <img src={avatar} alt="" />
                 <div className="text">
-                    <h2>Pramitha</h2>
+                    <h2>Mike</h2>
                     <p>Your Money</p>
                 </div>
             </div>
@@ -19,8 +19,8 @@ function Navigation({active, setActive}) {
                 {menuItems.map((item) => {
                     return <li
                         key={item.id}
-                         onClick={() => setActive(item.id)}
-                         className={active === item.id ? 'active': ''}
+                        onClick={() => setActive(item.id)}
+                        className={active === item.id ? 'active': ''}
                     >
                         {item.icon}
                         <span>{item.title}</span>

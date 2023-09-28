@@ -65,9 +65,3 @@ const AppStyled = styled.div`
 `;
 
 export default App;
-
-
-// 2:25:00
-// 2:46:00
-// 3:20:52
-// 3:46:00
