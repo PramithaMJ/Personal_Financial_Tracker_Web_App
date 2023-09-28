@@ -41,7 +41,7 @@ export const getExpenses = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
+/*
 export const deleteExpenses = async (req, res) => {
   const { id } = req.params;
   //console.log(id);
@@ -53,3 +53,15 @@ export const deleteExpenses = async (req, res) => {
       res.status(500).json({ message: "Server Error" });
     });
 };
+*/
+
+export const deleteExpenses = async (req, res) => {
+  const {id} = req.params;
+  ExpenseSchema.findByIdAndDelete(id)
+      .then((income) =>{
+          res.status(200).json({message: 'Expense Deleted'})
+      })
+      .catch((err) =>{
+          res.status(500).json({message: 'Server Error'})
+      })
+}
