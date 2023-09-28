@@ -42,8 +42,6 @@ export const GlobalProvider = ({children}) => {
         return totalIncome;
     }
 
-<<<<<<< HEAD
-=======
     //caculate expense
     const addExpense = async (income) => {
         const response = await axios.post(`${BASE_URL}add-expense`, income)
@@ -73,18 +71,12 @@ export const GlobalProvider = ({children}) => {
         return totalIncome;
     }
 
-
-
->>>>>>> 92cfd29 (V8.0.1 - (Expenses View create ))
     return (
         <GlobalContext.Provider value={{
             addIncome,
             getIncomes,
             incomes,
             deleteIncome,
-<<<<<<< HEAD
-            totalIncome
-=======
             expenses,
             totalIncome,
             addExpense,
@@ -92,7 +84,6 @@ export const GlobalProvider = ({children}) => {
             deleteExpense,
             totalExpenses
           
->>>>>>> 92cfd29 (V8.0.1 - (Expenses View create ))
         }}>
             {children}
         </GlobalContext.Provider>
