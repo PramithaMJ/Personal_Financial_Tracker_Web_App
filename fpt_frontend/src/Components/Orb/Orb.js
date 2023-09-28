@@ -4,18 +4,16 @@ import { useWindowSize } from '../../utils/useWindowSize';
 
 function Orb() {
 
-     const {width, height} = useWindowSize()
+    const {width, height} = useWindowSize()
 
-     console.log(width, height)
+    console.log(width, height)
 
-     const moveOrb = keyframes`
+    const moveOrb = keyframes`
         0%{
             transform: translate(0, 0);
         }
         50%{
-
-             transform: translate(${width/1.2}px, ${height/1.5}px);
-            
+            transform: translate(${width}px, ${height/2}px);
         }
         100%{
             transform: translate(0, 0);
@@ -24,7 +22,7 @@ function Orb() {
 
     const OrbStyled = styled.div`
         width: 70vh;
-        height: 70vh; kljl
+        height: 70vh;
         position: absolute;
         border-radius: 50%;
         margin-left: -37vh;

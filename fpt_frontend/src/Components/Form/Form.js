@@ -8,7 +8,7 @@ import { plus } from '../../utils/Icons';
 
 
 function Form() {
-     const {addIncome, getIncomes} = useGlobalContext()
+    const {addIncome, getIncomes, error, setError} = useGlobalContext()
     const [inputState, setInputState] = useState({
         title: '',
         amount: '',
@@ -17,11 +17,11 @@ function Form() {
         description: '',
     })
 
-     const { title, amount, date, category,description } = inputState;
+    const { title, amount, date, category,description } = inputState;
 
     const handleInput = name => e => {
         setInputState({...inputState, [name]: e.target.value})
-       // setError('')
+        setError('')
     }
 
     const handleSubmit = e => {
@@ -38,15 +38,16 @@ function Form() {
 
     return (
         <FormStyled onSubmit={handleSubmit}>
+            {error && <p className='error'>{error}</p>}
             <div className="input-control">
-                <input type="text" 
-                value={title}
-                name={'title'}
-                placeholder="Salary Title"
-                onChange={handleInput('title')}
-                 />
+                <input 
+                    type="text" 
+                    value={title}
+                    name={'title'} 
+                    placeholder="Salary Title"
+                    onChange={handleInput('title')}
+                />
             </div>
-
             <div className="input-control">
                 <input value={amount}  
                     type="text" 
@@ -83,7 +84,7 @@ function Form() {
                 <textarea name="description" value={description} placeholder='Add A Reference' id="description" cols="30" rows="4" onChange={handleInput('description')}></textarea>
             </div>
             <div className="submit-btn">
-            <Button 
+                <Button 
                     name={'Add Income'}
                     icon={plus}
                     bPad={'.8rem 1.6rem'}
