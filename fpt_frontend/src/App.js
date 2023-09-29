@@ -10,6 +10,8 @@ import { useGlobalContext } from "./context/globalContext";
 import Switch from "react-switch";
 import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
+import Summary from "./Components/Summary/summary";
+import Help from "./Components/Help/Help";
 
 function App() {
   const [active, setActive] = useState(1);
@@ -40,6 +42,10 @@ function App() {
         return <Income />;
       case 4:
         return <Expenses />;
+      case 5:
+        return <Summary />
+      case 6:
+        return <Help />;
       default:
         return <Dashboard />;
     }

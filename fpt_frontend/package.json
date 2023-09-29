@@ -16,6 +16,7 @@
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "react-switch": "^7.0.0",
+    "recharts": "^2.8.0",
     "styled-components": "^6.0.7",
     "web-vitals": "^2.1.4"
   },
