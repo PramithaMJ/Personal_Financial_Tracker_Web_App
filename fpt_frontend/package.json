@@ -9,6 +9,7 @@
     "axios": "^1.5.0",
     "chart.js": "^4.4.0",
     "moments": "^0.0.2",
+    "nanoid": "^5.0.1",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-datepicker": "^4.16.0",

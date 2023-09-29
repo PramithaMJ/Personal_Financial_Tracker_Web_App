@@ -5,12 +5,10 @@ import Chart from '../Chart/Chart';
 import { dollar } from '../../utils/Icons';
 import { useGlobalContext } from '../../context/globalContext';
 import History from '../History/History';
-import { Pie } from 'react-chartjs-2';
-
-
+import { Bar, Pie } from 'react-chartjs-2';
 
 const generateExpenseChartData = (expenses) => {
-    const categories = {}; // Object to store category totals
+    const categories = {};
   
     // Calculate total expenses for each category
     expenses.forEach((expense) => {
@@ -33,7 +31,6 @@ const generateExpenseChartData = (expenses) => {
             'rgba(255, 99, 132, 0.6)',
             'rgba(54, 162, 235, 0.6)',
             'rgba(255, 206, 86, 0.6)',
-            // Add more colors for additional categories
           ],
         },
       ],
@@ -42,7 +39,6 @@ const generateExpenseChartData = (expenses) => {
     return data;
   };
 
-  // Define the generateIncomeChartData function
 const generateIncomeChartData = (incomes) => {
     const categories = {}; // Object to store category totals
   
@@ -76,8 +72,6 @@ const generateIncomeChartData = (incomes) => {
     return data;
   };
   
-  
-
 function Dashboard() {
     const {totalExpenses,incomes, expenses, totalIncome, totalBalance, getIncomes, getExpenses } = useGlobalContext()
 
@@ -89,16 +83,13 @@ function Dashboard() {
     const expensesPieChartData = generateExpenseChartData(expenses);
     const incomePieChartData = generateIncomeChartData(incomes);
 
-
     return (
         <DashboardStyled>
             <InnerLayout>
                 <h1>All Transactions</h1>
                 <div className="stats-con">
                     <div className="chart-con">
-                        
                         <Chart />
-                        
                         <div className="amount-con">
                             <div className="income">
                             <Pie data={incomePieChartData} />
