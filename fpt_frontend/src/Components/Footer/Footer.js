@@ -3,8 +3,10 @@ import styled from "styled-components";
 
 const Footer = () => {
   return (
+    
     <FooterStyled>
       <p>&copy; 2023 Personal Finance Tracker. All rights reserved.</p>
+      {/* 
       <div className="absolute top-[769px] left-[0px] w-[1359px] h-[182px] text-left text-lg text-footer-2-wh font-inter">
             <img
               className="absolute top-[0px] left-[0px] w-[1359px] h-[182px]"
@@ -126,7 +128,8 @@ const Footer = () => {
                 />
               </div>
             </div>
-          </div>
+      </div>
+      */ }
     </FooterStyled>
   );
 };

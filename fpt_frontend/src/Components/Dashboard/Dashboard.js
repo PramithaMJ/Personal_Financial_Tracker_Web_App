@@ -5,6 +5,78 @@ import Chart from '../Chart/Chart';
 import { dollar } from '../../utils/Icons';
 import { useGlobalContext } from '../../context/globalContext';
 import History from '../History/History';
+import { Pie } from 'react-chartjs-2';
+
+
+
+const generateExpenseChartData = (expenses) => {
+    const categories = {}; // Object to store category totals
+  
+    // Calculate total expenses for each category
+    expenses.forEach((expense) => {
+      const { category, amount } = expense;
+      if (categories[category]) {
+        categories[category] += amount;
+      } else {
+        categories[category] = amount;
+      }
+    });
+  
+    // Convert categories object to an array for the chart
+    const data = {
+      labels: Object.keys(categories), // Category names
+      datasets: [
+        {
+          data: Object.values(categories), // Category totals
+          backgroundColor: [
+            // Add colors for each category
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(255, 206, 86, 0.6)',
+            // Add more colors for additional categories
+          ],
+        },
+      ],
+    };
+  
+    return data;
+  };
+
+  // Define the generateIncomeChartData function
+const generateIncomeChartData = (incomes) => {
+    const categories = {}; // Object to store category totals
+  
+    // Calculate total income for each category
+    incomes.forEach((income) => {
+      const { category, amount } = income;
+      if (categories[category]) {
+        categories[category] += amount;
+      } else {
+        categories[category] = amount;
+      }
+    });
+  
+    // Convert categories object to an array for the chart
+    const data = {
+      labels: Object.keys(categories), // Category names
+      datasets: [
+        {
+          data: Object.values(categories), // Category totals
+          backgroundColor: [
+            // Add colors for each category
+            'rgba(75, 192, 192, 0.6)',
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            // Add more colors for additional categories
+          ],
+        },
+      ],
+    };
+  
+    return data;
+  };
+  
+  
 
 function Dashboard() {
     const {totalExpenses,incomes, expenses, totalIncome, totalBalance, getIncomes, getExpenses } = useGlobalContext()
@@ -14,21 +86,29 @@ function Dashboard() {
         getExpenses()
     }, [])
 
+    const expensesPieChartData = generateExpenseChartData(expenses);
+    const incomePieChartData = generateIncomeChartData(incomes);
+
+
     return (
         <DashboardStyled>
             <InnerLayout>
                 <h1>All Transactions</h1>
                 <div className="stats-con">
                     <div className="chart-con">
+                        
                         <Chart />
+                        
                         <div className="amount-con">
                             <div className="income">
+                            <Pie data={incomePieChartData} />
                                 <h2>Total Income</h2>
                                 <p>
                                     {dollar} {totalIncome()}
                                 </p>
                             </div>
                             <div className="expense">
+                            <Pie data={expensesPieChartData} />
                                 <h2>Total Expense</h2>
                                 <p>
                                     {dollar} {totalExpenses()}
