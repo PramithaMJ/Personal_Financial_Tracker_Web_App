@@ -12,10 +12,22 @@ import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import Summary from "./Components/Summary/summary";
 import Help from "./Components/Help/Help";
+import Login from './Components/Login/Login';
+import Signup from './Components/Login/Signup';
+import LoginModal from './Components/LoginModel/LoginModel'; // Updated import path
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLoginSuccess = () => {
+    setIsLoggedIn(true);
+    setIsModalOpen(false);
+  };
+
   const [active, setActive] = useState(1);
   const [isDarkMode, setIsDarkMode] = useState(false); // State for dark mode
+  const [isLogin, setIsLogin] = useState(true);
 
   const global = useGlobalContext();
 
@@ -43,7 +55,7 @@ function App() {
       case 4:
         return <Expenses />;
       case 5:
-        return <Summary />
+        return <Summary />;
       case 6:
         return <Help />;
       default:
@@ -52,8 +64,8 @@ function App() {
   }
 
   const orbMemo = useMemo(() => {
-    return <Orb />
-  }, [])
+    return <Orb />;
+  }, []);
 
   return (
     <AppContainer>
@@ -81,6 +93,12 @@ function App() {
       </MainLayout>
       <Footer />
       <GlobalStyle />
+      <ToggleForm>
+        <button onClick={() => setIsLogin(true)}>Login</button>
+        <button onClick={() => setIsLogin(false)}>Sign Up</button>
+      </ToggleForm>
+      {isLogin ? <Login /> : <Signup />}
+      <LoginModal isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)} onLoginSuccess={handleLoginSuccess} />
     </AppContainer>
   );
 }
@@ -102,6 +120,14 @@ const TopRightCorner = styled.div`
   display: flex;
   align-items: center;
   z-index: 999;
+`;
+
+const ToggleForm = styled.div`
+  /* Styling for the form toggle buttons */
+`;
+
+const GlobalStyle = createGlobalStyle`
+  /* Global styles */
 `;
 
 export default App;
