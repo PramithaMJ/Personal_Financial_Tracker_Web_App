@@ -3,6 +3,7 @@ import {
   addIncomes,
   deleteIncomes,
   getIncomes,
+  updateIncome,
 } from "../controllers/income.js";
 import {
   addExpenses,
@@ -21,6 +22,6 @@ router
   .delete("/delete-incomes/:id", deleteIncomes)
   .post("/add-expense", addExpenses)
   .get("/get-expenses", getExpenses)
-  .delete("/delete-expenses/:id", deleteExpenses);
-
+  .delete("/delete-expenses/:id", deleteExpenses)
+  .put('/update-incomes/:id', updateIncome);
 export default router;

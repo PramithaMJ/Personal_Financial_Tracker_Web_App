@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react';
 import styled from 'styled-components'
 import { dateFormat } from '../../utils/dateFormat';
 import { bitcoin, book, calender, card, circle, clothing, comment, dollar, food, freelance, medical, money, piggy, stocks, takeaway, trash, tv, users, yt } from '../../utils/Icons';
 import Button from '../Button/Button';
+import UpdateForm from '../Form/UpdateForm';
+
+
+
 
 function IncomeItem({
     id,
@@ -13,8 +17,31 @@ function IncomeItem({
     description,
     deleteItem,
     indicatorColor,
-    type
+    type,
+    updateItem
 }) {
+
+    const [isUpdating, setIsUpdating] = useState(false);
+
+  const handleUpdateClick = () => {
+    // Toggle the update form visibility
+    setIsUpdating(!isUpdating);
+  };
+    
+// ...
+
+const handleSubmit = (e) => {
+    e.preventDefault();
+    const updatedIncome = {
+      // ... (update with new data)
+    };
+
+    // Call the updateItem function from props to update the income
+    updateItem(updatedIncome);
+  };
+
+  // ...
+
 
     const categoryIcon = () =>{
         switch(category) {
@@ -92,7 +119,46 @@ function IncomeItem({
                             onClick={() => deleteItem(id)}
                         />
                     </div>
+                    
                 </div>
+
+
+
+                <div>
+      {/* Display income details */}
+      {isUpdating ? (
+        // Render update form when isUpdating is true
+        // You can create an UpdateForm component for this
+        // Pass the income details and an onSubmit function to update the income
+        <UpdateForm
+          id={id}
+          title={title}
+          description={description}
+          amount={amount}
+          date={date}
+          type={type}
+          category={category}
+          updateItem={updateItem}
+        />
+      ) : (
+        // Render income details and buttons when isUpdating is false
+        <div>
+          <p>Title: {title}</p>
+          <p>Description: {description}</p>
+          <p>Amount: ${amount}</p>
+          <p>Date: {date}</p>
+          <p>Type: {type}</p>
+          <p>Category: {category}</p>
+          <button onClick={handleUpdateClick}>Update Income</button>
+          <button onClick={() => deleteItem(id)}>Delete Income</button>
+        </div>
+      )}
+    </div>
+
+
+
+
+
             </div>
         </IncomeItemStyled>
     )

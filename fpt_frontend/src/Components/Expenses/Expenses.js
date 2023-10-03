@@ -8,7 +8,7 @@ import IncomeItem from '../IncomeItem/IncomeItem';
 
 
 function Expenses() {
-    const {addIncome,expenses, getExpenses, deleteExpense, totalExpenses} = useGlobalContext()
+    const {addIncome,expenses, getExpenses, updateExpenses, deleteExpense, totalExpenses} = useGlobalContext()
 
     useEffect(() =>{
         getExpenses()
@@ -22,6 +22,7 @@ function Expenses() {
                     <div className="form-container">
                         <ExpenseForm />
                     </div>
+                  
                     <div className="incomes">
                         {expenses.map((expense) => {
                             const {_id, title, amount, date, category, description, type} = expense ;
@@ -37,6 +38,7 @@ function Expenses() {
                                 category={category} 
                                 indicatorColor="var(--color-green)"
                                 deleteItem={deleteExpense}
+                                updateItem = {updateExpenses}
                             />
                         })}
                     </div>
@@ -74,6 +76,7 @@ const ExpenseStyled = styled.div`
             flex: 1;
         }
     }
+
 `;
 
 export default Expenses
