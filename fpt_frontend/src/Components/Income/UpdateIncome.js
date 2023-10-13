@@ -30,11 +30,7 @@ function UpdateIncome() {
       amount: updatedAmount,
     })
       .then(() => {
-        
-        
-
-
-        
+        alert('Income updated successfully');
       })
       .catch((error) => {
         console.error(error);
