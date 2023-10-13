@@ -66,6 +66,11 @@ export const GlobalProvider = ({ children }) => {
     getExpenses();
   };
 
+  const updateExpense = async (id) => {
+    const res = await axios.put(`${BASE_URL}update-expenses/${id}`);
+    getExpenses();
+  };
+
   const totalExpenses = () => {
     let totalIncome = 0;
     expenses.forEach((income) => {
@@ -100,6 +105,7 @@ export const GlobalProvider = ({ children }) => {
         totalIncome,
         addExpense,
         getExpenses,
+        updateExpense,
         deleteExpense,
         totalExpenses,
         totalBalance,
