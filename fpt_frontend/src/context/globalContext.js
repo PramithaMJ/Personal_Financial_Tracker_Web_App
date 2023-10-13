@@ -33,6 +33,11 @@ export const GlobalProvider = ({children}) => {
         getIncomes()
     }
 
+    const updateIncome = async (id) =>{
+        const res = await axios.put(`${BASE_URL}update-incomes/${id}`)
+        getIncomes()
+    }
+
     const totalIncome = () => {
         let totalIncome = 0;
         incomes.forEach((income) =>{
@@ -93,6 +98,7 @@ export const GlobalProvider = ({children}) => {
             getIncomes,
             incomes,
             deleteIncome,
+            updateIncome,
             expenses,
             totalIncome,
             addExpense,

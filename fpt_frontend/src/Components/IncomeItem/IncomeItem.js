@@ -6,8 +6,6 @@ import Button from '../Button/Button';
 import UpdateForm from '../Form/UpdateForm';
 
 
-
-
 function IncomeItem({
     id,
     title,
@@ -34,6 +32,7 @@ const handleSubmit = (e) => {
     e.preventDefault();
     const updatedIncome = {
       // ... (update with new data)
+      
     };
 
     // Call the updateItem function from props to update the income

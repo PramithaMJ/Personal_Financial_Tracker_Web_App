@@ -9,6 +9,7 @@ import {
   addExpenses,
   deleteExpenses,
   getExpenses,
+
 } from "../controllers/expenses.js";
 
 const router = express.Router();
@@ -19,9 +20,10 @@ router.use(express.json());
 router
   .post("/add-incomes", addIncomes)
   .get("/get-incomes", getIncomes)
+  .put('/update-incomes/:id', updateIncome)
   .delete("/delete-incomes/:id", deleteIncomes)
   .post("/add-expense", addExpenses)
   .get("/get-expenses", getExpenses)
   .delete("/delete-expenses/:id", deleteExpenses)
-  .put('/update-incomes/:id', updateIncome);
+  // .put('/update-expenses/:id', updateExpenses);
 export default router;

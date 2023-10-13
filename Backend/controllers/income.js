@@ -74,7 +74,6 @@ export const updateIncome = async (req, res) => {
   try {
     // Find the income by ID
     const income = await IncomeSchema.findById(id);
-
     if (!income) {
       return res.status(404).json({ message: 'Income not found' });
     }
