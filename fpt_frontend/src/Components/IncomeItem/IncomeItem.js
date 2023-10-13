@@ -26,21 +26,24 @@ function IncomeItem({
     setIsUpdating(!isUpdating);
   };
     
-// ...
+
 
 const handleSubmit = (e) => {
     e.preventDefault();
     const updatedIncome = {
-      // ... (update with new data)
+      // (update with new data)
+        id,
+        title,
+        description,
+        amount,
+        date,
+        category,
       
     };
 
     // Call the updateItem function from props to update the income
     updateItem(updatedIncome);
   };
-
-  // ...
-
 
     const categoryIcon = () =>{
         switch(category) {
@@ -121,23 +124,22 @@ const handleSubmit = (e) => {
                     
                 </div>
 
-
-
                 <div>
                 {/* Display income details */}
+
                 {isUpdating ? (
                     // Render update form when isUpdating is true
-                    // You can create an UpdateForm component for this
                     // Pass the income details and an onSubmit function to update the income
                     <UpdateForm
-                    id={id}
-                    title={title}
-                    description={description}
-                    amount={amount}
-                    date={date}
-                    type={type}
-                    category={category}
-                    updateItem={updateItem}
+                        id={id}
+                        title={title}
+                        description={description}
+                        amount={amount}
+                        date={date}
+                        type={type}
+                        category={category}
+                        updateItem={updateItem}
+                        setIsUpdating={setIsUpdating}
                     />
                 ) : (
                     // Render income details and buttons when isUpdating is false

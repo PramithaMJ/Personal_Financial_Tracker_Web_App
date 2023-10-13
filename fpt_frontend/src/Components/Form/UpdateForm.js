@@ -1,4 +1,3 @@
-// UpdateForm.js (Create a new component)
 import React, { useState } from 'react';
 
 function UpdateForm({
@@ -39,7 +38,6 @@ function UpdateForm({
     <div>
       <h3>Update Income</h3>
       <form onSubmit={handleSubmit}>
-        {/* Update income fields */}
         <input
           type="text"
           value={title}
@@ -58,7 +56,18 @@ function UpdateForm({
           onChange={(e) => setAmount(e.target.value)}
           placeholder="Amount"
         />
-        {/* ... Add fields for date, type, and category */}
+        <input
+          type="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          placeholder="Date"
+        />
+        <input
+          type="text"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          placeholder="Category"
+        />
         <button type="submit">Save Changes</button>
         <button onClick={() => updateItem(null)}>Cancel</button>
       </form>
