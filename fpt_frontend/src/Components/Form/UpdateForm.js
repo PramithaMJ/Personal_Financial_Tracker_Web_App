@@ -70,7 +70,7 @@ function UpdateForm({
           placeholder="Category"
         />
         <button type="submit">Save Changes</button>
-        <button onClick={() => updateItem(null)}>Cancel</button>
+        {/* <button onClick={() => updateItem(null)}>Cancel</button> */}
       </form>
     </div>
   );

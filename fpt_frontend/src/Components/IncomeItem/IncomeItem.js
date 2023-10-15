@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components'
 import { dateFormat } from '../../utils/dateFormat';
-import { bitcoin, book, calender, card, circle, clothing, comment, dollar, food, freelance, medical, money, piggy, stocks, takeaway, trash, tv, users, yt } from '../../utils/Icons';
+import { bitcoin, book, calender, cancel, card, circle, clothing, comment, dollar, edit, food, freelance, medical, money, piggy, stocks, takeaway, trash, tv, users, yt } from '../../utils/Icons';
 import Button from '../Button/Button';
 import UpdateForm from '../Form/UpdateForm';
 
@@ -127,6 +127,7 @@ const handleSubmit = (e) => {
                             onClick={() => deleteItem(id)}
                         />
                       <Button
+                      icon= {edit}
                     name={isEditing ? "Save" : "Update"} // Change button label based on isEditing state
                     bPad="1rem"
                     bRad="50%"
@@ -138,6 +139,7 @@ const handleSubmit = (e) => {
                 />
                         {isUpdating && (
                     <Button
+                    icon={cancel}
                         name="Cancel"
                         bPad="1rem"
                         bRad="50%"
@@ -178,8 +180,8 @@ const handleSubmit = (e) => {
                     <p>Date: {date}</p>
                     <p>Type: {type}</p>
                     <p>Category: {category}</p>
-                    <button onClick={handleUpdateClick}>Update Income</button>
-                    <button onClick={() => deleteItem(id)}>Delete Income</button>
+                    <button onClick={handleUpdateClick}>Edit</button>
+                    <button onClick={() => deleteItem(id)}>Delete</button>
                     </div>
                 )}
             </div>
