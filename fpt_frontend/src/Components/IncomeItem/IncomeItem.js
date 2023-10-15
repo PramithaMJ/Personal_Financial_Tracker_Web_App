@@ -26,7 +26,10 @@ function IncomeItem({
     setIsUpdating(!isUpdating);
   };
     
-
+  const handleCancelClick = () => {
+    // Set isUpdating to false to cancel the update process
+    setIsUpdating(false);
+};
 
 const handleSubmit = (e) => {
     e.preventDefault();
@@ -120,6 +123,28 @@ const handleSubmit = (e) => {
                             hColor={'var(--color-green)'}
                             onClick={() => deleteItem(id)}
                         />
+                        {/* <Button
+                            name="Update"
+                            bPad="1rem"
+                            bRad="50%"
+                            bg="var(--primary-color"
+                            color="#fff"
+                            iColor="#fff"
+                            hColor="var(--color-green)"
+                            onClick={handleUpdateClick}
+                        /> */}
+                        {isUpdating && (
+                            <Button
+                                name="Cancel"
+                                bPad="1rem"
+                                bRad="50%"
+                                bg="var(--primary-color"
+                                color="#fff"
+                                iColor="#fff"
+                                hColor="var(--color-green)"
+                                onClick={handleCancelClick}
+                            />
+                        )}
                     </div>
                     
                 </div>
