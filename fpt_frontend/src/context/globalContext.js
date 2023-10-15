@@ -31,11 +31,14 @@ export const GlobalProvider = ({ children }) => {
     getIncomes();
   };
 
-  const updateIncome = async (id) => {
-    const res = await axios.put(`${BASE_URL}update-incomes/${id}`);
+  const updateIncome = async (obj) => {
+    // console.log(id);
+    const url = `${BASE_URL}update-incomes/${obj.id}`;
+    const res = await axios.put(url, obj);
+    console.log(res);
     getIncomes();
   };
-
+  
   const totalIncome = () => {
     let totalIncome = 0;
     incomes.forEach((income) => {
