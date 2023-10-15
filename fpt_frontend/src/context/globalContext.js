@@ -69,8 +69,10 @@ export const GlobalProvider = ({ children }) => {
     getExpenses();
   };
 
-  const updateExpense = async (id) => {
-    const res = await axios.put(`${BASE_URL}update-expenses/${id}`);
+  const updateExpense = async (obj) => {
+    const url = `${BASE_URL}update-expenses/${obj.id}`;
+    const res = await axios.put(url, obj);
+    console.log(res);
     getExpenses();
   };
 

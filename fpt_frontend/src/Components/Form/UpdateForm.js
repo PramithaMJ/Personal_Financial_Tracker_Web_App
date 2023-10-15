@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function UpdateForm({
   id,
@@ -6,15 +6,14 @@ function UpdateForm({
   description: initialDescription,
   amount: initialAmount,
   date: initialDate,
-  type: initialType,
   category: initialCategory,
   updateItem,
+  setIsUpdating,
 }) {
   const [title, setTitle] = useState(initialTitle);
   const [description, setDescription] = useState(initialDescription);
   const [amount, setAmount] = useState(initialAmount);
   const [date, setDate] = useState(initialDate);
-  const [type, setType] = useState(initialType);
   const [category, setCategory] = useState(initialCategory);
 
   const handleSubmit = (e) => {
@@ -26,12 +25,14 @@ function UpdateForm({
       description,
       amount,
       date,
-      type,
       category,
     };
 
     // Call the updateItem function from props to update the income
     updateItem(updatedIncome);
+   
+    // Close the update form
+    setIsUpdating(false);
   };
 
   return (

@@ -20,10 +20,13 @@ function IncomeItem({
 }) {
 
     const [isUpdating, setIsUpdating] = useState(false);
+    const [isEditing, setIsEditing] = useState(false); // New state variable for editing mode
 
   const handleUpdateClick = () => {
     // Toggle the update form visibility
     setIsUpdating(!isUpdating);
+    // Toggle the editing mode
+    setIsEditing(!isEditing);
   };
     
   const handleCancelClick = () => {
@@ -123,27 +126,27 @@ const handleSubmit = (e) => {
                             hColor={'var(--color-green)'}
                             onClick={() => deleteItem(id)}
                         />
-                        {/* <Button
-                            name="Update"
-                            bPad="1rem"
-                            bRad="50%"
-                            bg="var(--primary-color"
-                            color="#fff"
-                            iColor="#fff"
-                            hColor="var(--color-green)"
-                            onClick={handleUpdateClick}
-                        /> */}
+                      <Button
+                    name={isEditing ? "Save" : "Update"} // Change button label based on isEditing state
+                    bPad="1rem"
+                    bRad="50%"
+                    bg="var(--primary-color"
+                    color="#fff"
+                    iColor="#fff"
+                    hColor="var(--color-green)"
+                    onClick={handleUpdateClick}
+                />
                         {isUpdating && (
-                            <Button
-                                name="Cancel"
-                                bPad="1rem"
-                                bRad="50%"
-                                bg="var(--primary-color"
-                                color="#fff"
-                                iColor="#fff"
-                                hColor="var(--color-green)"
-                                onClick={handleCancelClick}
-                            />
+                    <Button
+                        name="Cancel"
+                        bPad="1rem"
+                        bRad="50%"
+                        bg="var(--primary-color"
+                        color="#fff"
+                        iColor="#fff"
+                        hColor="var(--color-green)"
+                        onClick={handleCancelClick}
+                    />
                         )}
                     </div>
                     
