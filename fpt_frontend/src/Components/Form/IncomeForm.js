@@ -47,7 +47,7 @@ const Form = ({ isDarkMode }) => {
           onChange={handleInput("title")}
           style={{
             color: isDarkMode ? "#fff" : "rgba(34, 34, 96, 1)",
-            background: isDarkMode ? "#222" : "transparent",  // Background color in dark mode
+            background: isDarkMode ? "#222" : "transparent", // Background color in dark mode
           }}
         />
       </div>
@@ -81,8 +81,6 @@ const Form = ({ isDarkMode }) => {
               }}
             />
           }
-         
-          
         />
       </div>
       <div className="selects input-control">
@@ -121,7 +119,7 @@ const Form = ({ isDarkMode }) => {
           onChange={handleInput("description")}
           style={{
             color: isDarkMode ? "#fff" : "rgba(34, 34, 96, 1)",
-            background: isDarkMode ? "#222" : "transparent",    // Background color in dark mode
+            background: isDarkMode ? "#222" : "transparent", // Background color in dark mode
           }}
         ></textarea>
       </div>
@@ -140,15 +138,17 @@ const Form = ({ isDarkMode }) => {
 };
 
 const FormStyled = styled.form`
-    display: flex;
+  display: flex;
   flex-direction: column;
   gap: 2rem;
-  input, textarea, select {
+  input,
+  textarea,
+  select {
     font-family: inherit;
     font-size: inherit;
     outline: none;
     border: none;
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
     border-radius: 5px;
     border: 2px solid #fff;
     resize: none;
@@ -156,7 +156,7 @@ const FormStyled = styled.form`
     color: ${(props) => (props.isDarkMode ? "#fff" : "rgba(34, 34, 96, 0.9)")};
     background: ${(props) => (props.isDarkMode ? "#2a2746" : "transparent")};
     &::placeholder {
-        color: ${(props) => (props.isDarkMode ? "#fff" : "rgba(34, 34, 96, 0.4")};
+      color: ${(props) => (props.isDarkMode ? "#fff" : "rgba(34, 34, 96, 0.4")};
     }
   }
   .input-control {
