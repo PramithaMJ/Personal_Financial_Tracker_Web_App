@@ -1,14 +1,15 @@
 import express from "express";
 import cors from "cors";
 import connectDB from "./database/database.js";
-
+import userRoutes from './routes/user.js'
 import router from "./routes/transactions.js";
-
 import { promises as fsPromises } from "fs";
 import os from "os";
 import { fileURLToPath } from "url";
 import path from "path";
 import "dotenv/config";
+
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -30,7 +31,7 @@ app.use(cors());
     app.use("/api/v1", routeModule);
   });
 })();
-
+app.use("/api/user", userRoutes);
 //use router fromtrans
 // app.use("/api/v1", router);
 
@@ -44,4 +45,3 @@ const server = () => {
 
 server();
 
-//50
