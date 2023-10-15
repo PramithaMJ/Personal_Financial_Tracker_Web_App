@@ -90,7 +90,7 @@ function App() {
       </MainLayout>
       <Footer />
       <GlobalStyle />
-     
+      
     </AppContainer>
   );
 }

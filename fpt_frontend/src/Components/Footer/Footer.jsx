@@ -3,9 +3,13 @@ import styled from "styled-components";
 
 const Footer = () => {
   return (
-    
-    <FooterStyled>
+    <div>
+      <h1 className="uppercase">
+        Hello World
+      </h1>
+       <FooterStyled>
       <p>&copy; 2023 Personal Finance Tracker. All rights reserved.</p>
+     
       {/* 
       <div className="absolute top-[769px] left-[0px] w-[1359px] h-[182px] text-left text-lg text-footer-2-wh font-inter">
             <img
@@ -131,6 +135,8 @@ const Footer = () => {
       </div>
       */ }
     </FooterStyled>
+    </div>
+   
   );
 };
 
