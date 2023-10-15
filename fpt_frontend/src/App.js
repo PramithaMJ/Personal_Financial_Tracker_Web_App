@@ -44,19 +44,19 @@ function App() {
   const displayData = () => {
     switch (active) {
       case 1:
-        return <Dashboard />;
+        return <Dashboard isDarkMode={isDarkMode}/>;
       case 2:
-        return <Dashboard />;
+        return <Dashboard isDarkMode={isDarkMode}/>;
       case 3:
-        return <Income />;
+        return <Income isDarkMode={isDarkMode}/>;
       case 4:
-        return <Expenses />;
+        return <Expenses isDarkMode={isDarkMode}/>;
       case 5:
-        return <Summary />;
+        return <Summary isDarkMode={isDarkMode}/>;
       case 6:
-        return <Help />;
+        return <Help isDarkMode={isDarkMode}/>;
       default:
-        return <Dashboard />;
+        return <Dashboard isDarkMode={isDarkMode}/>;
     }
   }
 
@@ -88,7 +88,7 @@ function App() {
           {displayData()}
         </MainContent>
       </MainLayout>
-      <Footer />
+      <Footer isDarkMode={isDarkMode}/>
       <GlobalStyle />
       
     </AppContainer>

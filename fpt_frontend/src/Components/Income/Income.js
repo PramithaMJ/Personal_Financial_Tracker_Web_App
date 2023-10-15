@@ -5,7 +5,7 @@ import { useGlobalContext } from "../../context/globalContext";
 import Form from "../Form/IncomeForm";
 import IncomeItem from "../IncomeItem/IncomeItem";
 
-function Income() {
+ const Income = ({isDarkMode}) => {
   const {
     addIncome,
     incomes,
@@ -19,22 +19,22 @@ function Income() {
     getIncomes();
   }, []);
   return (
-    <IncomeStyled>
-      <InnerLayout>
+    <IncomeStyled isDarkMode={isDarkMode}>
+      <InnerLayout isDarkMode={isDarkMode}>
         <h1>Incomes</h1>
         <h2 className="total-income">
           Total Income: <span>${totalIncome()}</span>
         </h2>
         <div className="income-content">
           <div className="form-container">
-            <Form />
+            <Form isDarkMode={isDarkMode}/>
           </div>
           <div className="incomes">
             {incomes.map((income) => {
               const { _id, title, amount, date, category, description, type } =
                 income;
               return (
-                <IncomeItem
+                <IncomeItem isDarkMode={isDarkMode}
                   key={_id}
                   id={_id}
                   title={title}
@@ -63,8 +63,9 @@ const IncomeStyled = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #fcf6f9;
-    border: 2px solid #ffffff;
+    background: ${(props) => (props.isDarkMode ? "#2a2746" : "#fff")};
+    border: 2px solid ${(props) => (props.isDarkMode ? "#fff" : "#2a2746")};
+
     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
     border-radius: 20px;
     padding: 1rem;
@@ -74,7 +75,7 @@ const IncomeStyled = styled.div`
     span {
       font-size: 2.5rem;
       font-weight: 800;
-      color: var(--color-green);
+      color: ${(props) => (props.isDarkMode ? "#ffffff" : "var(--color-dark)")};
     }
   }
   .income-content {
