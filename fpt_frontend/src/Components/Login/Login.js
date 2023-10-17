@@ -34,7 +34,7 @@ const Login = () => {
     <div style={{ display: 'flex', flexDirection: 'column', flex: 2 }}>
         <div className="h-full flex items-center justify-center"
         style={{flex: 2, position: 'relative' }}>
-          <h1 className="absolute top-8 left-24 right-24 cent text-green-950 text-8xl font-bold ">Welcome to Personal Finance Tracker</h1>
+          <h1 className="absolute top-8 left-24 right-24 text-green-950 text-8xl font-bold ">Welcome to Personal Finance Tracker</h1>
          
         </div>
 
@@ -49,6 +49,7 @@ const Login = () => {
           }}
         />
         </div>
+        
       </div>
  
   
@@ -71,7 +72,7 @@ const Login = () => {
           id="email"
           onChange={(e) => setEmail(e.target.value)}
           value={email}
-          className="w-full p-2 pl-10 border rounded-md  mb-4 mt-4"
+          className="w-full p-2 pl-10 border rounded-md  mb-4 mt-4 text-black"
           placeholder="Email"
         />
         <div className="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
@@ -95,7 +96,7 @@ const Login = () => {
     id="password"
     onChange={(e) => setPassword(e.target.value)}
     value={password}
-    className="w-full mt-4 mb-6 p-2 pl-10 border rounded-md"
+    className="w-full mt-4 mb-6 p-2 pl-10 border rounded-md text-black"
     placeholder="Password"
   />
   <div className="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
@@ -114,6 +115,7 @@ const Login = () => {
         </button>
         {error && <div className=" text-red-500">{error}</div>}
         <hr className="my-4" />
+        <p className='text-white'>or create new account</p>
         <Link to="/signup">
           <button className="w-full mb-4 mt-4 h-12 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-700">
            Sign Up
@@ -122,6 +124,7 @@ const Login = () => {
       </form>
     </div>
   </div>
+
  
 </div>
   </div>

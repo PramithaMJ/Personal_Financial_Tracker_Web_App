@@ -14,7 +14,7 @@ const About = () => {
   const isDashboard = location.pathname === '/';
 
   return (
-    <section className="bg-blue-100 py-16">
+    <section className="bg-blue-100 py-16 ">
       <div className="container mx-auto">
         <h1 className="text-4xl font-bold text-blue-900 mb-4">About Personal Finance Tracker</h1>
         <p className="text-lg text-blue-800 mb-8">
