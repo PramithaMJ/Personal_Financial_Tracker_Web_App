@@ -32,7 +32,7 @@ const Header = ({ isDarkMode }) => {
           <ul>
             <li>Home</li>
             <Link to="/home">Dashboard</Link>
-            <li>About</li>
+            <Link to="/about" className="text-blue-800 hover:text-red-500">About</Link>
             <li>Contact</li>
             <li>.........</li>
           </ul>

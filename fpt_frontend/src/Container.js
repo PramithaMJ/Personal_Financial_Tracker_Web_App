@@ -4,6 +4,7 @@ import App from './App'
 import Login from './Components/Login/Login'
 import Signup from './Components/SignUp.js/SignUp'
 import { useState } from 'react'
+import About from './Components/About/About'
 export default function Container() {
   //user state
   const [user, setUser] = useState(null)
@@ -37,6 +38,7 @@ export default function Container() {
           <Route path="/signup" element={
             user ? <App /> : <Signup />
           } />
+            <Route path="/about" element={<About />} />
         </Routes>
       
       </BrowserRouter>

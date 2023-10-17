@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import About from "../About/About";
 
 const Footer = () => {
   return (
@@ -135,6 +136,7 @@ const Footer = () => {
       </div>
       */ }
     </FooterStyled>
+    <About/>
     </div>
    
   );

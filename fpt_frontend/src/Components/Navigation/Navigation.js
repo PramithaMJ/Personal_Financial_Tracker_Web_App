@@ -3,15 +3,21 @@ import styled from 'styled-components'
 import avatar from '../../img/avatar.png'
 import { signout } from '../../utils/Icons'
 import { menuItems } from '../../utils/menuItems'
+import { useAuthContext } from "../../hook/useAuthContext";
 
 function Navigation({active, setActive}) {
-    
+    const { user } = useAuthContext();
     return (
         <NavStyled>
             <div className="user-con">
                 <img src={avatar} alt="" />
                 <div className="text">
                     <h2>Pramitha</h2>
+                    {user && (
+            <div>
+              <span>{user.email}</span>
+            </div>
+          )}
                     <p>Personal Finance Tracker</p>
                 </div>
             </div>
