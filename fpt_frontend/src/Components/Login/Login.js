@@ -38,6 +38,8 @@
 import React from 'react';
 import { useState } from "react";
 import { useLogin } from "../../hook/useLogin";
+import { Link } from 'react-router-dom';
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -76,8 +78,24 @@ const Login = () => {
         value={password}
       />
 
-      <button disabled={isLoading}>Log in</button>
+      <button disabled={isLoading}
+      className={`bg-blue-500 
+      ${isLoading ? 'bg-blue-300 cursor-not-allowed' : 'hover:bg-blue-700'}
+       text-white font-bold py-2 px-4 rounded-full shadow-md focus:outline-none 
+       focus:ring focus:ring-blue-300`}>
+        Log in
+      </button>
       {error && <div className="error">{error}</div>}
+      <div>
+        __________
+      </div>
+    <Link to="/signup"> 
+        <button className="bg-blue-500 hover:bg-blue-700
+         text-white font-bold py-2 px-4 rounded-full shadow-md focus:outline-none focus:ring
+          focus:ring-blue-300">
+          Sign Up
+          </button>
+      </Link>
     </form>
       </div>
     </div>

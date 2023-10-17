@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import App from './App'
 import Login from './Components/Login/Login'
-import Signup from './Components/SignUp.js/SignUp'
+import Signup from './Components/SignUp/SignUp'
 import { useState } from 'react'
 import About from './Components/About/About'
 export default function Container() {

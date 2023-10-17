@@ -19,7 +19,7 @@ import {
   Switch as SwitchRouter,
 } from "react-router-dom";
 import Login from "./Components/Login/Login";
-import Signup from "./Components/SignUp.js/SignUp";
+import Signup from "./Components/SignUp/SignUp";
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
