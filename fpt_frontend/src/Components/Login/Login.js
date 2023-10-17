@@ -17,8 +17,6 @@ const Login = () => {
     setShowPassword(!showPassword);
   };
   
-
-
   const { login, error, isLoading } = useLogin();
 
   const handleSubmit = async (e) => {
@@ -29,68 +27,32 @@ const Login = () => {
   
 
   return (
-    /*
-    <div 
-    style={{ display: 'flex', height: '100vh', backgroundColor: '#2A2746' }}>
+   
+    <div style={{ display: 'flex', height: '100vh', backgroundColor: 'lightgray', overflow: "auto"}}>
+  
 
+    <div style={{ display: 'flex', flexDirection: 'column', flex: 2 }}>
+        <div className="h-full flex items-center justify-center"
+        style={{flex: 2, position: 'relative' }}>
+          <h1 className="absolute top-8 left-24 right-24 cent text-green-950 text-8xl font-bold ">Welcome to Personal Finance Tracker</h1>
+         
+        </div>
 
-      <div style={{ flex: 2, backgroundColor: 'lightgray' }}>
-        <img src={loginImage} alt="Sample" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        <div style={{ flex: 2, backgroundColor: 'lightgray' }}>
+          <img
+          src={loginImage}
+          alt="Sample"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+          }}
+        />
+        </div>
       </div>
-      <div style={{ flex: 1, padding: '20px' }}>
-      <form className="login" onSubmit={handleSubmit}>
-      <h3 className="text-xl font-medium text-black">Log In</h3>
-
-      <label>Email address:</label>
-      <input
-        type="email"
-        onChange={(e) => setEmail(e.target.value)}
-        value={email}
-      />
-      <label>Password:</label>
-      <input
-        type="password"
-        onChange={(e) => setPassword(e.target.value)}
-        value={password}
-      />
-
-      <button disabled={isLoading}
-      className={`bg-blue-500 
-      ${isLoading ? 'bg-blue-300 cursor-not-allowed' : 'hover:bg-blue-700'}
-       text-white font-bold py-2 px-4 rounded-full shadow-md focus:outline-none 
-       focus:ring focus:ring-blue-300`}>
-        Log in
-      </button>
-      {error && <div className="error">{error}</div>}
-      <div>
-        __________
-      </div>
-    <Link to="/signup"> 
-        <button className="bg-blue-500 hover:bg-blue-700
-         text-white font-bold py-2 px-4 rounded-full shadow-md focus:outline-none focus:ring
-          focus:ring-blue-300">
-          Sign Up
-          </button>
-      </Link>
-    </form>
-      </div>
-    </div>
-*/
-
-    <div style={{ display: 'flex', height: '100vh', backgroundColor: 'lightgray' }}>
  
-       {/* Left content (2 parts) */}
-      <div style={{ 
-        flex: 2, 
-        borderTopRightRadius: '80px',
-      }}>
-        <img src={loginImage} alt="Sample" 
-        style={{ width: '100%', height: '100%', 
-        objectFit: 'cover' 
-        }} />    
-      </div>
+  
 
-{/* Right content (1 part) */}
 <div style={{ 
   flex: 1, 
   backgroundColor: '#2A2746',
@@ -160,9 +122,8 @@ const Login = () => {
       </form>
     </div>
   </div>
+ 
 </div>
-
-  
   </div>
   );
 }
