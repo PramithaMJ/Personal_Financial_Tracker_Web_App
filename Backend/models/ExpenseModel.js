@@ -37,6 +37,12 @@ const ExpenseSchema = new mongoose.Schema(
     trim: true,
     //maxlength:[100,+++++"Description can not be more than 100 characters"]
     },
+    user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    },
+    
+        
 },
 { timestamps: true }
 );

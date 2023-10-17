@@ -1,17 +1,40 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useLogout } from "../../hook/useLogout";
+import { useAuthContext } from "../../hook/useAuthContext";
 
 const Header = ({ isDarkMode }) => {
+  const { logout } = useLogout();
+  const { user } = useAuthContext();
+
+  const handleClick = () => {
+    logout();
+  };
+
   return (
     <HeaderStyled isDarkMode={isDarkMode}>
       <div className="content">
         <h1>Personal Finance Tracker</h1>
         <nav>
+          {user && (
+            <div>
+              <span>{user.email}</span>
+              <button onClick={handleClick}>Log out</button>
+            </div>
+          )}
+          {!user && (
+            <div>
+              <Link to="/login">Login</Link>
+              <Link to="/signup">Signup</Link>
+            </div>
+          )}
           <ul>
             <li>Home</li>
-            <li>Dashboard</li>
+            <Link to="/home">Dashboard</Link>
             <li>About</li>
             <li>Contact</li>
+            <li>.........</li>
           </ul>
         </nav>
       </div>
@@ -20,8 +43,12 @@ const Header = ({ isDarkMode }) => {
 };
 
 const HeaderStyled = styled.header`
-  background-color: ${(props) => (props.isDarkMode ? "#222" : "#fff")}; // Change colors based on isDarkMode
-  color: ${(props) => (props.isDarkMode ? "#fff" : "#222")}; // Change font color based on isDarkMode
+  background-color: ${(props) =>
+    props.isDarkMode ? "#222" : "#fff"}; // Change colors based on isDarkMode
+  color: ${(props) =>
+    props.isDarkMode
+      ? "#fff"
+      : "#222"}; // Change font color based on isDarkMode
   padding: 20px 0;
   .content {
     max-width: 1200px;

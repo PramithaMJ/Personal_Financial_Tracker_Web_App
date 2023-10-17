@@ -12,7 +12,14 @@ import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import Summary from "./Components/Summary/summary";
 import Help from "./Components/Help/Help";
-
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  Switch as SwitchRouter,
+} from "react-router-dom";
+import Login from "./Components/Login/Login";
+import Signup from "./Components/SignUp.js/SignUp";
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -44,54 +51,56 @@ function App() {
   const displayData = () => {
     switch (active) {
       case 1:
-        return <Dashboard isDarkMode={isDarkMode}/>;
+        return <Dashboard isDarkMode={isDarkMode} />;
       case 2:
-        return <Dashboard isDarkMode={isDarkMode}/>;
+        return <Dashboard isDarkMode={isDarkMode} />;
       case 3:
-        return <Income isDarkMode={isDarkMode}/>;
+        return <Income isDarkMode={isDarkMode} />;
       case 4:
-        return <Expenses isDarkMode={isDarkMode}/>;
+        return <Expenses isDarkMode={isDarkMode} />;
       case 5:
-        return <Summary isDarkMode={isDarkMode}/>;
+        return <Summary isDarkMode={isDarkMode} />;
       case 6:
-        return <Help isDarkMode={isDarkMode}/>;
+        return <Help isDarkMode={isDarkMode} />;
       default:
-        return <Dashboard isDarkMode={isDarkMode}/>;
+        return <Dashboard isDarkMode={isDarkMode} />;
     }
-  }
+  };
 
   const orbMemo = useMemo(() => {
     return <Orb />;
   }, []);
 
   return (
-    <AppContainer>
-      <Header isDarkMode={isDarkMode} />
-      {orbMemo}
-      <MainLayout>
-        <TopRightCorner>
-          <Switch
-            onChange={toggleDarkMode}
-            checked={isDarkMode}
-            onColor="#333" // Customize the switch colors as needed
-            onHandleColor="#fff"
-            handleDiameter={25}
-            uncheckedIcon={false}
-            checkedIcon={false}
-          />
-          <span className="switch-label">
-            {isDarkMode ? "Dark Mode" : "Light Mode"}
-          </span>
-        </TopRightCorner>
-        <Navigation active={active} setActive={setActive} />
-        <MainContent>
-          {displayData()}
-        </MainContent>
-      </MainLayout>
-      <Footer isDarkMode={isDarkMode}/>
-      <GlobalStyle />
-      
-    </AppContainer>
+    <div>
+    
+
+        <AppContainer>
+          <Header isDarkMode={isDarkMode} />
+          {orbMemo}
+          <MainLayout>
+            <TopRightCorner>
+              <Switch
+                onChange={toggleDarkMode}
+                checked={isDarkMode}
+                onColor="#333" // Customize the switch colors as needed
+                onHandleColor="#fff"
+                handleDiameter={25}
+                uncheckedIcon={false}
+                checkedIcon={false}
+              />
+              <span className="switch-label">
+                {isDarkMode ? "Dark Mode" : "Light Mode"}
+              </span>
+            </TopRightCorner>
+            <Navigation active={active} setActive={setActive} />
+            <MainContent>{displayData()}</MainContent>
+          </MainLayout>
+          <Footer isDarkMode={isDarkMode} />
+
+          <GlobalStyle />
+        </AppContainer>
+    </div>
   );
 }
 
@@ -113,8 +122,6 @@ const TopRightCorner = styled.div`
   align-items: center;
   z-index: 999;
 `;
-
-
 
 const GlobalStyle = createGlobalStyle`
   /* Global styles */

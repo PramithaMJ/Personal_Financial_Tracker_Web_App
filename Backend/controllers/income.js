@@ -11,6 +11,7 @@ export const addIncomes = async (req, res) => {
     category,
     description,
     date,
+    user: req.user,
   });
 
   try {
@@ -34,8 +35,9 @@ export const addIncomes = async (req, res) => {
 };
 
 export const getIncomes = async (req, res) => {
+  console.log(req.user);
   try {
-    const incomes = await IncomeSchema.find().sort({ createedAt: -1 });
+    const incomes = await IncomeSchema.find({ user: req.user });
     res.status(200).json(incomes);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -55,9 +57,23 @@ export const deleteIncomes = async (req, res) => {
 };
 */
 
+// export const deleteIncomes = async (req, res) => {
+
+//     try {
+//       const incomes = await IncomeSchema.findByIdAndDelete({ user: req.user });
+//       res.status(200).json({incomes})
+//     } catch (error) {
+//       res.status(500).json({message: 'Server Error'})
+//     }
+  
+//   };
+
+
+
 export const deleteIncomes = async (req, res) => {
+
   const {id} = req.params;
-  IncomeSchema.findByIdAndDelete(id)
+  IncomeSchema.findByIdAndDelete({ _id: id })
       .then((income) =>{
           res.status(200).json({message: 'Income Deleted'})
       })
@@ -73,7 +89,7 @@ export const updateIncome = async (req, res) => {
 
   try {
     // Find the income by ID
-    const income = await IncomeSchema.findById(id);
+    const income = await IncomeSchema.findById({ _id: id});
     if (!income) {
       return res.status(404).json({ message: 'Income not found' });
     }

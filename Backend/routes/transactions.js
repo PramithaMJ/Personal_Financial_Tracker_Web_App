@@ -13,7 +13,10 @@ import {
 
 } from "../controllers/expenses.js";
 
+import requireAuth from '../middleware/requireAuth.js'
+
 const router = express.Router();
+router.use(requireAuth)
 
 // Middleware to parse JSON data
 router.use(express.json());

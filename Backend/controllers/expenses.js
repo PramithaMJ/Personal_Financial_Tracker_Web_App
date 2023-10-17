@@ -11,6 +11,7 @@ export const addExpenses = async (req, res) => {
     category,
     description,
     date,
+    user: req.user,
   });
 
   try {
@@ -34,8 +35,9 @@ export const addExpenses = async (req, res) => {
 };
 
 export const getExpenses = async (req, res) => {
+  console.log(req.user);
   try {
-    const incomes = await ExpenseSchema.find().sort({ createedAt: -1 });
+    const incomes = await ExpenseSchema.find({ user: req.user });
     res.status(200).json(incomes);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -57,7 +59,7 @@ export const deleteExpenses = async (req, res) => {
 
 export const deleteExpenses = async (req, res) => {
   const {id} = req.params;
-  ExpenseSchema.findByIdAndDelete(id)
+  ExpenseSchema.findByIdAndDelete({_id: id})
       .then((income) =>{
           res.status(200).json({message: 'Expense Deleted'})
       })
@@ -71,7 +73,7 @@ export const updateExpenses = async (req, res) => {
 
   try {
     // Find the expenses by ID
-    const expense = await ExpenseSchema.findById(id);
+    const expense = await ExpenseSchema.findById({ _id: id});
     if (!expense) {
       return res.status(404).json({ message: 'Expense not found' });
     }

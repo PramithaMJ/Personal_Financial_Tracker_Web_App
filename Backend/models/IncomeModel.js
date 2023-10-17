@@ -34,6 +34,12 @@
         trim: true,
         //maxlength:[100,+++++"Description can not be more than 100 characters"]
         },
+        user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required: true,
+        }
+        
     },
     { timestamps: true }
     );
