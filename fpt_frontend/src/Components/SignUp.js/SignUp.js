@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useSignup } from "../../hook/useSignup"
+import Oathh from "../../context/Oathh"
 
 
 const Signup = () => {
@@ -33,6 +34,7 @@ const Signup = () => {
 
       <button disabled={isLoading}>Sign up</button>
       {error && <div className="error">{error}</div>}
+      <Oathh />
     </form>
   )
 }

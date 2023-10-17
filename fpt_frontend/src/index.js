@@ -7,6 +7,7 @@ import { AuthContextProvider } from "./context/authContext";
 import { Provider } from "react-redux";
 import store from "./store/store";
 import Container from "./Container";
+import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
