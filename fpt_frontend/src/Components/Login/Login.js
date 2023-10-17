@@ -118,6 +118,11 @@ const Login = () => {
         <button className="w-full mb-4 mt-4 p-2 bg-red-500 text-white font-bold rounded-md hover:bg-green-700">
           Continue With Google
         </button>
+
+        <button className="w-full mb-4 mt-4 p-2 bg-blue-800 text-white font-bold rounded-md hover:bg-green-700">
+          Continue With Facebook
+        </button>
+        
         <hr className="my-4" />
         <p className='text-white'>or create new account</p>
         <Link to="/signup">

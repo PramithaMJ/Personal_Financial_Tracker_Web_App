@@ -16,10 +16,11 @@ const Signup = () => {
     if (password !== reenteredPassword) {
       setPasswordMatchError("Passwords do not match");
     } else {
-      setPasswordMatchError(""); 
+      //setPasswordMatchError(""); 
       await signup(email, password);
+      window.location.reload();
     }
-    window.location.reload();
+    
   }
 
   return (
