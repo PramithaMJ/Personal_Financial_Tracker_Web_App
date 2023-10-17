@@ -1,11 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useGlobalContext } from '../../context/globalContext'
+import IncomeItem from "../IncomeItem/IncomeItem";
 
-function History({ isDarkMode }) {
+function FullHistory({ isDarkMode }) {
     const {transactionHistory} = useGlobalContext()
 
     const [...history] = transactionHistory()
+    const {
+        addIncome,
+        expenses,
+        getExpenses,
+        updateExpense,
+        deleteExpense,
+        totalExpenses,
+    incomes,
+    getIncomes,
+    deleteIncome,
+    updateIncome,
+    totalIncome,
+      } = useGlobalContext();
+      
 
     return (
         <HistoryStyled isDarkMode={isDarkMode}>
@@ -33,6 +48,61 @@ function History({ isDarkMode }) {
                     </div>
                 )
             })}
+
+
+
+
+<div className='font-mono font-extrabold text-3xl text-center'> Income History</div>
+<div className="incomes">
+{incomes.map((income) => {
+  const { _id, title, amount, date, category, description, type } =
+    income;
+  return (
+    <IncomeItem isDarkMode={isDarkMode}
+      key={_id}
+      id={_id}
+      title={title}
+      description={description}
+      amount={amount}
+      date={date}
+      type={type}
+      category={category}
+      indicatorColor="var(--color-green)"
+      deleteItem={deleteIncome}
+      updateItem={updateIncome}
+    />
+  );
+})}
+</div>
+
+
+<div className='font-mono font-extrabold text-3xl text-center'>
+    Expenses History
+</div>
+
+<div className="incomes">
+{expenses.map((expense) => {
+  const { _id, title, amount, date, category, description, type } =
+    expense;
+  console.log(expense);
+  return (
+    <IncomeItem isDarkMode={isDarkMode}
+      key={_id}
+      id={_id}
+      title={title}
+      description={description}
+      amount={amount}
+      date={date}
+      type={type}
+      category={category}
+      indicatorColor="var(--color-green)"
+      deleteItem={deleteExpense}
+      updateItem={updateExpense}
+    />
+  );
+})}
+</div>
+
         </HistoryStyled>
     )
 }
@@ -56,4 +126,20 @@ const HistoryStyled = styled.div`
       }
 `;
 
-export default History
+export default FullHistory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

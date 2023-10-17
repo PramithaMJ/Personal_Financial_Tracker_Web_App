@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 import { InnerLayout } from "../../styles/Layout";
 import Chart from "../Chart/Chart";
 import { useGlobalContext } from "../../context/globalContext";
-import History from "../History/History";
+import History from "../History/RecentHistory";
 import { Bar, Pie } from "react-chartjs-2";
 
 const generateExpenseChartData = (expenses) => {

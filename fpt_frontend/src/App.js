@@ -20,8 +20,9 @@ import {
 } from "react-router-dom";
 import Login from "./Components/Login/Login";
 import Signup from "./Components/SignUp/SignUp";
-import History from "./Components/History/History";
+import History from "./Components/History/RecentHistory";
 import Transaction from "./Components/Transaction/Transaction";
+import FullHistory from "./Components/History/FullHistory";
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -46,7 +47,7 @@ function App() {
     body {
       background-color: ${isDarkMode ? "#333" : "#fff"};
       color: ${isDarkMode ? "#fff" : "#333"};
-      overflow-y: auto; /* Enable body scrolling when content exceeds viewport */
+      overflow-y: auto; 
     }
   `;
 
@@ -63,7 +64,7 @@ function App() {
       case 5:
         return <Summary isDarkMode={isDarkMode} />;
       case 6:
-        return <History isDarkMode={isDarkMode} />;
+        return <FullHistory isDarkMode={isDarkMode} />;
       case 7:
         return <Help isDarkMode={isDarkMode} />;
       default:

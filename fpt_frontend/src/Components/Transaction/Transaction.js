@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../../context/globalContext';
 import { InnerLayout } from "../../styles/Layout";
-import History from "../History/History";
+import History from "../History/RecentHistory";
 import { useEffect } from 'react';
 import LoginFooter from '../Footer/LoginFooter';
 
