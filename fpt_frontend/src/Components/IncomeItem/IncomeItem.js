@@ -22,6 +22,12 @@ import {
   tv,
   users,
   yt,
+  other,
+  pocketMoney,
+  commition,
+  interest,
+  
+
 } from "../../utils/Icons";
 import Button from "../Button/Button";
 import UpdateForm from "../Form/UpdateForm";
@@ -86,7 +92,14 @@ function IncomeItem({
       case "youtube":
         return yt;
       case "other":
-        return piggy;
+        return other;
+      case "pocketMoney":
+        return pocketMoney;
+      case "commition":
+        return commition;
+      case "interest":
+        return interest;
+
       default:
         return "";
     }

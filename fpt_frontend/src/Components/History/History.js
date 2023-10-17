@@ -2,14 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 import { useGlobalContext } from '../../context/globalContext'
 
-function History() {
+function History({ isDarkMode }) {
     const {transactionHistory} = useGlobalContext()
 
     const [...history] = transactionHistory()
 
     return (
-        <HistoryStyled>
-           <h2 className="text-2xl font-bold text-gray-800">Recent History</h2>
+        <HistoryStyled isDarkMode={isDarkMode}>
+           <h2 className={`total-income ${isDarkMode ? "dark-mode-text font-bold font-serif text-2xl" : "font-bold"}`}>
+            Recent History
+            </h2>
 
             {history.map((item) =>{
                 const {_id, title, amount, type} = item
@@ -49,6 +51,9 @@ const HistoryStyled = styled.div`
         justify-content: space-between;
         align-items: center;
     }
+    .dark-mode-text {
+        color: #fff;
+      }
 `;
 
 export default History

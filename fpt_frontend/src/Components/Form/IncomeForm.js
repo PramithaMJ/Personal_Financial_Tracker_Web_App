@@ -74,14 +74,14 @@ const Form = ({ isDarkMode }) => {
           onChange={(date) => {
             setInputState({ ...inputState, date: date });
           }}
-          // customInput={
-          //   <input
-          //     style={{
-          //       color: isDarkMode ? "#fff" : "rgba(34, 34, 96, 1)",
-          //       background: isDarkMode ? "#222" : "transparent",
-          //     }}
-          //   />
-          // }
+          customInput={
+            <input
+              style={{
+                color: isDarkMode ? "#fff" : "rgba(34, 34, 96, 1)",
+                background: isDarkMode ? "#222" : "transparent",
+              }}
+            />
+          }
         />
       </div>
       <div className="selects input-control">
@@ -93,19 +93,23 @@ const Form = ({ isDarkMode }) => {
           onChange={handleInput("category")}
           style={{
             color: isDarkMode ? "#fff" : "rgba(34, 34, 96, 1)",
-            background: isDarkMode ? "#222" : "transparent", // Background color in dark mode
+            background: isDarkMode ? "#222" : "transparent",
           }}
         >
           <option value="" disabled>
             Select Option
           </option>
           <option value="salary">Salary</option>
+          <option value="pocketMoney">Pocket Money</option>
+          <option value="salary">Selling</option>
           <option value="freelancing">Freelancing</option>
-          <option value="investments">Investiments</option>
+          <option value="investments">Investments</option>
           <option value="stocks">Stocks</option>
-          <option value="bitcoin">Bitcoin</option>
+          <option value="bitcoin">Interest</option>
           <option value="bank">Bank Transfer</option>
-          <option value="youtube">Youtube</option>
+          <option value="gift">Gifts</option>
+          <option value="commition">Commission</option>
+          <option value="youTube">Youtube</option>
           <option value="other">Other</option>
         </select>
       </div>
@@ -113,7 +117,7 @@ const Form = ({ isDarkMode }) => {
         <textarea
           name="description"
           value={description}
-          placeholder="Add A Reference"
+          placeholder="Add a reference"
           id="description"
           cols="30"
           rows="4"
@@ -154,14 +158,9 @@ const FormStyled = styled.form`
     border: 2px solid #fff;
     resize: none;
     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
-            // color: ${(props) => (props.isDarkMode ? "#fff" : "rgba(34, 34, 96, 0.9)")};
-            // background: parent")};
-            // &::placeholder {
-            //   color: ${(props) => (props.isDarkMode ? "#fff" : "rgba(34, 34, 96, 0.4")};
-            // }
-    color: rgba(34, 34, 96, 0.9);
+    color: ${props => (props.isDarkMode ? '#ffffff' : '#222260')};
     &::placeholder {
-      color: rgba(34, 34, 96, 0.4);
+      color: ${props => (props.isDarkMode ? '#ffffff' : '#222260' )};
     }
   }
   .input-control {

@@ -21,12 +21,11 @@ const generateExpenseChartData = (expenses) => {
 
   // Convert categories object to an array for the chart
   const data = {
-    labels: Object.keys(categories), // Category names
+    labels: Object.keys(categories), 
     datasets: [
       {
-        data: Object.values(categories), // Category totals
+        data: Object.values(categories), 
         backgroundColor: [
-          //  colors for each category
           "rgba(255, 99, 132, 0.6)",
           "rgba(54, 162, 235, 0.6)",
           "rgba(255, 206, 86, 0.6)",
@@ -53,10 +52,10 @@ const generateIncomeChartData = (incomes) => {
 
   // Convert categories object to an array for the chart
   const data = {
-    labels: Object.keys(categories), // Category names
+    labels: Object.keys(categories), 
     datasets: [
       {
-        data: Object.values(categories), // Category totals
+        data: Object.values(categories), 
         backgroundColor: [
           //  colors for each category
           "rgba(75, 192, 192, 0.6)",

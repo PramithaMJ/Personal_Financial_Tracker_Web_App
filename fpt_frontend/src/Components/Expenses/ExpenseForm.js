@@ -93,7 +93,7 @@ function ExpenseForm({ isDarkMode }) {
           onChange={handleInput("category")}
           style={{
             color: isDarkMode ? "#fff" : "rgba(34, 34, 96, 1)",
-            background: isDarkMode ? "#222" : "transparent", // Background color in dark mode
+            background: isDarkMode ? "#222" : "transparent", 
           }}
         >
           <option value="" disabled>

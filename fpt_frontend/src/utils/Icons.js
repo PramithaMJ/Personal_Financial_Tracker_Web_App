@@ -30,3 +30,17 @@ export const circle = <i className="fa-solid fa-circle-dot"></i>
 export const edit = <i className="fa-solid fa-pen-to-square"></i>
 export const save = <i className="fa-solid fa-floppy-disk"></i>
 export const cancel = <i className="fa-solid fa-x"></i>
+export const search = <i className="fa-solid fa-search"></i>
+export const gift = <i className="fa-solid fa-gift"></i>
+export const bank = <i className="fa-solid fa-bank"></i>
+export const home = <i className="fa-solid fa-home"></i>
+export const travelling = <i className="fa-solid fa-plane"></i>
+export const other = <i className="fa-solid fa-ellipsis-h"></i>
+export const pocketMoney = <i className="fa-brands fa-get-pocket"></i>
+export const salary = <i className="fa-solid fa-money-bill-wave"></i>
+export const commition = <i className="fa-solid fa-money-check-dollar fa-beat-fade"></i>
+export const investments = <i className="fa-solid fa-chart-line fa-beat-fade"></i>
+export const interest = <i className="fa-solid fa-money-bill-wave fa-beat-fade"></i>
+export const history = <i className="fa-solid fa-clock-rotate-left fa-beat-fade"></i>
+export const help = <i className="fa-solid fa-question-circle fa-beat-fade"></i>
+
