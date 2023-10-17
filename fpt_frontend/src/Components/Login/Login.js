@@ -114,6 +114,10 @@ const Login = () => {
           Log in
         </button>
         {error && <div className=" text-red-500">{error}</div>}
+
+        <button className="w-full mb-4 mt-4 p-2 bg-red-500 text-white font-bold rounded-md hover:bg-green-700">
+          Continue With Google
+        </button>
         <hr className="my-4" />
         <p className='text-white'>or create new account</p>
         <Link to="/signup">

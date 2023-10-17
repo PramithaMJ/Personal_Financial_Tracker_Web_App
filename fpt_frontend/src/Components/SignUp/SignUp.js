@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useSignup } from "../../hook/useSignup";
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import LoginFooter from '../Footer/LoginFooter';
+import Login from "../Login/Login";
 
 const Signup = () => {
   const [email, setEmail] = useState('');
@@ -15,16 +16,17 @@ const Signup = () => {
     if (password !== reenteredPassword) {
       setPasswordMatchError("Passwords do not match");
     } else {
-      setPasswordMatchError(""); // Clear the error if passwords match
+      setPasswordMatchError(""); 
       await signup(email, password);
     }
+    window.location.reload();
   }
 
   return (
     <div className="flex flex-col min-h-screen  " style={{ backgroundColor: '#2A2746' }}>
       <div className="flex justify-center items-center h-full mt-28">
-        <div className="bg-transparent shadow-2xl p-18 rounded-lg w-full max-w-md border border-black p-9">
-          <form className="signup p-5 m-8" onSubmit={handleSubmit}>
+        <div className="bg-transparent shadow-2xl p-18 rounded-lg w-full max-w-lg border border-black ">
+          <form className="signup p-5 m-4" onSubmit={handleSubmit}>
           <div className="mb-4 flex justify-center items-center h-full">
             <h2 className="text-4xl font-bold text-white" m-6 >Create Account</h2>
             </div>
@@ -65,28 +67,30 @@ const Signup = () => {
                 value={reenteredPassword}
               />
 
-
             </div>
              {passwordMatchError && <div className="text-red-500 mt-4">{passwordMatchError}</div>}
 
-            <button
-              disabled={isLoading}
-              className="w-full bg-blue-500 text-white font-bold p-2 rounded hover:bg-blue-700"
-            >
-              Sign up
-            </button>
+             <button
+        disabled={isLoading}
+        className="w-full bg-blue-500 text-white font-bold p-2 rounded hover:bg-blue-700"
+        onClick={handleSubmit} 
+      >
+        
+
+        Sign up
+      </button>
 
             {error && <div className="text-red-500 mt-4">{error}</div>}
-          </form>
-          <hr/>
-          <div className="mt-4 ">
+          <hr className="m-6"/>
+          <div className="mt-4 mb-4 ">
             <p className="text-white m-5">Already have an account?</p>
             <Link to="/login" className="text-blue-500 hover:text-blue-700">
-          <button className="w-full bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold p-2 rounded-full shadow-md focus:outline-none focus:ring focus:ring-blue-300">
+          <button className="w-full bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold p-5 rounded-full shadow-md focus:outline-none focus:ring focus:ring-blue-300">
                 Back to Login
               </button>
             </Link>
           </div>
+          </form>
         </div>
       </div>
 
