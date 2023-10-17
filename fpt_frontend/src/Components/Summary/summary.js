@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useGlobalContext } from '../../context/globalContext';
 import { Bar, Bubble, Doughnut, Line, Pie, Radar } from 'react-chartjs-2'
 
-const Summary = () => {
+const Summary = ({isDarkMode}) => {
   const { incomes, expenses } = useGlobalContext();
 
   // Calculate total income
@@ -45,7 +45,7 @@ const Summary = () => {
           'rgba(255, 99, 132, 0.6)',
           'rgba(75, 192, 192, 0.6)',
           'rgba(54, 162, 235, 0.6)',
-          // Add more colors for additional categories
+         
         ],
       },
     ],
@@ -60,7 +60,7 @@ const Summary = () => {
           'rgba(75, 192, 192, 0.6)',
           'rgba(255, 99, 132, 0.6)',
           'rgba(54, 162, 235, 0.6)',
-          // Add more colors for additional categories
+         
         ],
       },
     ],
@@ -93,7 +93,7 @@ const Summary = () => {
           'rgba(255, 99, 132, 0.6)',
           'rgba(75, 192, 192, 0.6)',
           'rgba(54, 162, 235, 0.6)',
-          // Add more colors for additional categories
+         
         ],
       },
     ],
@@ -107,12 +107,12 @@ const Summary = () => {
         data: [
           { x: 10, y: 20, r: 15 }, // Category A
           { x: 25, y: 10, r: 30 }, // Category B
-          // Add more data points for additional categories
+          
         ],
         backgroundColor: [
           'rgba(255, 99, 132, 0.6)',
           'rgba(75, 192, 192, 0.6)',
-          // Add more colors for additional categories
+          
         ],
       },
     ],
@@ -122,78 +122,85 @@ const Summary = () => {
 
 
   return (
-    <SummaryContainer>
-      <h2>Summary</h2>
-      <SectionContainer>
-        <h3>Income</h3>
-        <SummaryTable>
+    <SummaryContainer isDarkMode={isDarkMode} >
+     <h2 className={isDarkMode ? "dark-mode-text font-serif font-extrabold text-4xl m-5" : " font-serif font-extrabold text-4xl m-5"}>
+  Summary
+</h2>
+
+      <SectionContainer isDarkMode={isDarkMode} >
+        <h3 className='className={isDarkMode ? "dark-mode-text font-serif font-extrabold text-xl m-5" : " font-serif font-extrabold text-4xl m-5"}'>
+          Income
+          </h3>
+        <SummaryTable isDarkMode={isDarkMode} >
           <thead>
             <tr>
-              <th>Category</th>
-              <th>Amount</th>
+              <th  className=' text-purple-800' >Category</th>
+              <th className='text-purple-800'>Amount</th>
             </tr>
           </thead>
           <tbody>
             {Object.keys(categorizedIncome).map((category) => (
               <tr key={category}>
-                <td>{category}</td>
-                <td>${categorizedIncome[category]}</td>
+                <td className=' text-black'>{category}</td>
+                <td className=' text-black'>LKR. {categorizedIncome[category]}</td>
               </tr>
             ))}
           </tbody>
         </SummaryTable>
       </SectionContainer>
       <SectionContainer>
-        <h3>Expenses</h3>
-        <SummaryTable>
+        <h3 className='{isDarkMode ? "dark-mode-text font-serif font-extrabold text-xl m-5" : " font-serif font-extrabold text-xl m-5"}'>
+          Expenses
+          </h3>
+        <SummaryTable isDarkMode={isDarkMode}>
           <thead>
             <tr>
-              <th>Category</th>
-              <th>Amount</th>
+              <th className='text-purple-800'>Category</th>
+              <th className='text-purple-800'>Amount</th>
             </tr>
           </thead>
           <tbody>
             {Object.keys(categorizedExpenses).map((category) => (
               <tr key={category}>
-                <td>{category}</td>
-                <td>${categorizedExpenses[category]}</td>
+                <td className=' text-black'>{category}</td>
+                <td className=' text-black'>LKR. {categorizedExpenses[category]}</td>
               </tr>
             ))}
           </tbody>
         </SummaryTable>
 
       </SectionContainer>
-
-      <ChartRow>
-        <PieChartContainer>
+      <ChartRow isDarkMode={isDarkMode}>
+        <PieChartContainer isDarkMode={isDarkMode}>
           <Pie data={incomePieChartData} />
         </PieChartContainer>
-        <PieChartContainer>
+        <PieChartContainer isDarkMode={isDarkMode}>
           <Pie data={expensesPieChartData} />
         </PieChartContainer>
       </ChartRow>
 
 
-      <TotalContainer>
+      <TotalContainer isDarkMode={isDarkMode}>
         <div>
           <p>Total Income:</p>
-          <p>${totalIncome}</p>
+          <p>LKR. {totalIncome}</p>
         </div>
         <div>
           <p>Total Expenses:</p>
-          <p>${totalExpenses}</p>
+          <p>LKR. {totalExpenses}</p>
         </div>
         <div>
           <p>Total Balance:</p>
-          <p>${totalBalance}</p>
+          <p>LKR. {totalBalance}</p>
         </div>
       </TotalContainer>
 
         <Line data={lineChartData} />
+  <div className="charts-container">
+  <Doughnut data={doughnutChartData} />
+  <Bubble data={bubbleChartData} />
+</div>
 
-        <Doughnut data={doughnutChartData} />
-
-        <Bubble data={bubbleChartData} />
       
 
     </SummaryContainer>
@@ -205,14 +212,22 @@ const SummaryContainer = styled.div`
   padding: 1rem;
   border-radius: 5px;
   box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
-  text-align: center;
+  text-align: left;
   h2 {
     margin-bottom: 1rem;
   }
+  .dark-mode-text {
+    color: #222;
+  }
+  
 `;
+
 
 const SectionContainer = styled.div`
   margin-bottom: 1.5rem;
+  .dark-mode-text2 {
+    color: ${(props) => (props.isDarkMode ? "#fff" : "#2a2746")};
+  }
 `;
 
 const SummaryTable = styled.table`
@@ -231,6 +246,7 @@ const SummaryTable = styled.table`
   td:first-child {
     width: 60%;
   }
+  
 `;
 
 const TotalContainer = styled.div`
@@ -247,7 +263,8 @@ const ChartRow = styled.div`
 `;
 
 const PieChartContainer = styled.div`
-  flex: 1; /* Equal width for both pie charts */
+  flex: 1; 
   margin-top: 1rem;
 `;
+
 export default Summary;

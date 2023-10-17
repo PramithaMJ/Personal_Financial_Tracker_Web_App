@@ -36,7 +36,8 @@ const Form = ({ isDarkMode }) => {
   };
 
   return (
-    <FormStyled isDarkMode={isDarkMode} onSubmit={handleSubmit}>
+    <FormStyled isDarkMode={isDarkMode} 
+    onSubmit={handleSubmit}>
       {error && <p className="error">{error}</p>}
       <div className="input-control">
         <input
@@ -47,7 +48,7 @@ const Form = ({ isDarkMode }) => {
           onChange={handleInput("title")}
           style={{
             color: isDarkMode ? "#fff" : "rgba(34, 34, 96, 1)",
-            background: isDarkMode ? "#222" : "transparent", // Background color in dark mode
+            background: isDarkMode ? "#222" : "transparent", 
           }}
         />
       </div>
@@ -60,7 +61,7 @@ const Form = ({ isDarkMode }) => {
           onChange={handleInput("amount")}
           style={{
             color: isDarkMode ? "#fff" : "rgba(34, 34, 96, 1)",
-            background: isDarkMode ? "#222" : "transparent", // Background color in dark mode
+            background: isDarkMode ? "#222" : "transparent", 
           }}
         />
       </div>
@@ -73,14 +74,14 @@ const Form = ({ isDarkMode }) => {
           onChange={(date) => {
             setInputState({ ...inputState, date: date });
           }}
-          customInput={
-            <input
-              style={{
-                color: isDarkMode ? "#fff" : "rgba(34, 34, 96, 1)",
-                background: isDarkMode ? "#222" : "transparent",
-              }}
-            />
-          }
+          // customInput={
+          //   <input
+          //     style={{
+          //       color: isDarkMode ? "#fff" : "rgba(34, 34, 96, 1)",
+          //       background: isDarkMode ? "#222" : "transparent",
+          //     }}
+          //   />
+          // }
         />
       </div>
       <div className="selects input-control">
@@ -152,11 +153,15 @@ const FormStyled = styled.form`
     border-radius: 5px;
     border: 2px solid #fff;
     resize: none;
-    /* Text color and background color based on isDarkMode */
-    color: ${(props) => (props.isDarkMode ? "#fff" : "rgba(34, 34, 96, 0.9)")};
-    background: ${(props) => (props.isDarkMode ? "#2a2746" : "transparent")};
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
+            // color: ${(props) => (props.isDarkMode ? "#fff" : "rgba(34, 34, 96, 0.9)")};
+            // background: parent")};
+            // &::placeholder {
+            //   color: ${(props) => (props.isDarkMode ? "#fff" : "rgba(34, 34, 96, 0.4")};
+            // }
+    color: rgba(34, 34, 96, 0.9);
     &::placeholder {
-      color: ${(props) => (props.isDarkMode ? "#fff" : "rgba(34, 34, 96, 0.4")};
+      color: rgba(34, 34, 96, 0.4);
     }
   }
   .input-control {

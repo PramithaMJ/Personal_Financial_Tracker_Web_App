@@ -5,7 +5,7 @@ import { useGlobalContext } from "../../context/globalContext";
 import ExpenseForm from "../Expenses/ExpenseForm";
 import IncomeItem from "../IncomeItem/IncomeItem";
 
-function Expenses() {
+const  Expenses = ({isDarkMode}) =>{
   const {
     addIncome,
     expenses,
@@ -19,15 +19,17 @@ function Expenses() {
     getExpenses();
   }, []);
   return (
-    <ExpenseStyled>
-      <InnerLayout>
-        <h1>Expenses</h1>
-        <h2 className="total-income">
-          Total Expense: <span>${totalExpenses()}</span>
+    <ExpenseStyled isDarkMode={isDarkMode}>
+      <InnerLayout isDarkMode={isDarkMode}>
+        <h1 className={isDarkMode ? "dark-mode-text font-serif font-extrabold text-4xl m-5" : " font-serif font-extrabold text-4xl m-5"}>
+          Expenses
+          </h1>
+        <h2 className={`total-income ${isDarkMode ? "dark-mode-text" : ""}`}>
+          Total Expense: <span>LKR.{totalExpenses()}</span>
         </h2>
         <div className="income-content">
           <div className="form-container">
-            <ExpenseForm />
+            <ExpenseForm isDarkMode={isDarkMode}/>
           </div>
 
           <div className="incomes">
@@ -36,7 +38,7 @@ function Expenses() {
                 expense;
               console.log(expense);
               return (
-                <IncomeItem
+                <IncomeItem isDarkMode={isDarkMode}
                   key={_id}
                   id={_id}
                   title={title}
@@ -65,8 +67,9 @@ const ExpenseStyled = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #fcf6f9;
-    border: 2px solid #ffffff;
+    background: ${(props) => (props.isDarkMode ? "#2a2746" : "#fff")};
+    border: 2px solid ${(props) => (props.isDarkMode ? "#fff" : "#2a2746")};
+
     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
     border-radius: 20px;
     padding: 1rem;
@@ -76,7 +79,7 @@ const ExpenseStyled = styled.div`
     span {
       font-size: 2.5rem;
       font-weight: 800;
-      color: var(--color-green);
+      color: ${(props) => (props.isDarkMode ? "#ffffff" : "var(--color-dark)")};
     }
   }
   .income-content {
@@ -85,6 +88,9 @@ const ExpenseStyled = styled.div`
     .incomes {
       flex: 1;
     }
+  }
+  .dark-mode-text {
+    color: #fff;
   }
 `;
 

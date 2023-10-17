@@ -34,7 +34,9 @@ const Login = () => {
     <div style={{ display: 'flex', flexDirection: 'column', flex: 2 }}>
         <div className="h-full flex items-center justify-center"
         style={{flex: 2, position: 'relative' }}>
-          <h1 className="absolute top-8 left-24 right-24 text-green-950 text-8xl font-bold ">Welcome to Personal Finance Tracker</h1>
+          <h1 className="absolute top-8 left-24 right-24 text-green-950 text-8xl font-bold ">
+           <span className='font-serif font-extrabold'> Welcome</span>  to Personal Finance Tracker
+            </h1>
          
         </div>
 

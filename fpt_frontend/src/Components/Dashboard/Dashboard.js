@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { styled } from "styled-components";
 import { InnerLayout } from "../../styles/Layout";
 import Chart from "../Chart/Chart";
-import { dollar } from "../../utils/Icons";
 import { useGlobalContext } from "../../context/globalContext";
 import History from "../History/History";
 import { Bar, Pie } from "react-chartjs-2";
@@ -27,7 +26,7 @@ const generateExpenseChartData = (expenses) => {
       {
         data: Object.values(categories), // Category totals
         backgroundColor: [
-          // Add colors for each category
+          //  colors for each category
           "rgba(255, 99, 132, 0.6)",
           "rgba(54, 162, 235, 0.6)",
           "rgba(255, 206, 86, 0.6)",
@@ -59,11 +58,10 @@ const generateIncomeChartData = (incomes) => {
       {
         data: Object.values(categories), // Category totals
         backgroundColor: [
-          // Add colors for each category
+          //  colors for each category
           "rgba(75, 192, 192, 0.6)",
           "rgba(255, 99, 132, 0.6)",
           "rgba(54, 162, 235, 0.6)",
-          // Add more colors for additional categories
         ],
       },
     ],
@@ -93,59 +91,59 @@ const Dashboard = ({ isDarkMode }) => {
 
   return (
     <DashboardStyled isDarkMode={isDarkMode}>
-      <InnerLayout >
-        <h1>All Transactions</h1>
-        <div className="stats-con">
-          <div className="balance">
-            <h2>Total Balance</h2>
-            <p>
-              {dollar} {totalBalance()}
-            </p>
-          </div>
-          <div className="chart-con">
-            <div className="chart-row">
-              {/* First pie chart (Total Income) */}
-              <div className="chart-item">
-                <Pie data={incomePieChartData} height={150} width={150} />
-                <h2>Total Income</h2>
-                <p>
-                  {dollar} {totalIncome()}
-                </p>
-              </div>
-              {/* Second pie chart (Total Expense) */}
-              <div className="chart-item">
-                <Pie data={expensesPieChartData} height={150} width={150} />
-                <h2>Total Expense</h2>
-                <p>
-                  {dollar} {totalExpenses()}
-                </p>
-              </div>
+    <InnerLayout>
+      <h1 className={isDarkMode ? "dark-mode-text font-serif font-extrabold text-4xl m-5" : "font-serif font-extrabold text-4xl m-5"}>All Transactions</h1>
+      <div className="stats-con">
+        <div className="balance">
+          <h2 className={isDarkMode ? "dark-mode-text" : ""}>Total Balance</h2>
+          <p className="mx-auto">
+            LKR. {totalBalance()}
+          </p>
+        </div>
+        <div className="chart-con">
+          <div className="chart-row">
+            {/* First pie chart (Total Income) */}
+            <div className="chart-item">
+              <Pie data={incomePieChartData} height={150} width={150} />
+              <h2 className={isDarkMode ? "dark-mode-text" : ""}>Total Income</h2>
+              <p>
+                LKR. {totalIncome()}
+              </p>
             </div>
-          </div>
-          <div className="chart-container">
-            <Chart />
-          </div>
-          <div className="history-con">
-            <History />
-            <h2 className="salary-title">
-              Min <span>Salary</span>Max
-            </h2>
-            <div className="salary-item">
-              <p>${Math.min(...incomes.map((item) => item.amount))}</p>
-              <p>${Math.max(...incomes.map((item) => item.amount))}</p>
-            </div>
-            <h2 className="salary-title">
-              Min <span>Expense</span>Max
-            </h2>
-            <div className="salary-item">
-              <p>${Math.min(...expenses.map((item) => item.amount))}</p>
-              <p>${Math.max(...expenses.map((item) => item.amount))}</p>
+            {/* Second pie chart (Total Expense) */}
+            <div className="chart-item">
+              <Pie data={expensesPieChartData} height={150} width={150} />
+              <h2 className={isDarkMode ? "dark-mode-text" : ""}>Total Expense</h2>
+              <p>
+                LKR. {totalExpenses()}
+              </p>
             </div>
           </div>
         </div>
-      </InnerLayout>
-    </DashboardStyled>
-  );
+        <div className="chart-container">
+          <Chart />
+        </div>
+        <div className="history-con">
+          <History />
+          <h2 className="salary-title">
+            Min <span>Salary</span>Max
+          </h2>
+          <div className="salary-item">
+            <p>LKR.{Math.min(...incomes.map((item) => item.amount))}</p>
+            <p>LKR.{Math.max(...incomes.map((item) => item.amount))}</p>
+          </div>
+          <h2 className="salary-title">
+            Min <span>Expense</span>Max
+          </h2>
+          <div className="salary-item">
+            <p>LKR.{Math.min(...expenses.map((item) => item.amount))}</p>
+            <p>LKR.{Math.max(...expenses.map((item) => item.amount))}</p>
+          </div>
+        </div>
+      </div>
+    </InnerLayout>
+  </DashboardStyled>
+);
 };
 
 const DashboardStyled = styled.div`
@@ -224,6 +222,9 @@ const DashboardStyled = styled.div`
         color: ${(props) => (props.isDarkMode ? "#fff" : "#333")}; // Text color
       }
     }
+  }
+  .dark-mode-text {
+    color: ${(props) => (props.isDarkMode ? "#fff" : "#333")};
   }
 `;
 

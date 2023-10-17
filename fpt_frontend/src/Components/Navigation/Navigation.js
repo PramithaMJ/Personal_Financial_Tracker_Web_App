@@ -4,15 +4,21 @@ import avatar from '../../img/avatar.png'
 import { signout } from '../../utils/Icons'
 import { menuItems } from '../../utils/menuItems'
 import { useAuthContext } from "../../hook/useAuthContext";
+import { useLogout } from '../../hook/useLogout'
 
 function Navigation({active, setActive}) {
+    const { logout } = useLogout();
+  
+    const handleClick = () => {
+      logout();
+    };
     const { user } = useAuthContext();
     return (
         <NavStyled>
             <div className="user-con">
                 <img src={avatar} alt="" />
                 <div className="text">
-                    <h2>Pramitha</h2>
+                    {/* <h2>Pramitha</h2> */}
                     {user && (
             <div>
               <span>{user.email}</span>
@@ -34,9 +40,9 @@ function Navigation({active, setActive}) {
                 })}
             </ul>
             <div className="bottom-nav">
-                <li>
-                    {signout} Sign Out
-                </li>
+            <button  onClick={handleClick}>
+                {signout}Sign out
+                </button>
             </div>
         </NavStyled>
     )

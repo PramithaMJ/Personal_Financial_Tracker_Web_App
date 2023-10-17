@@ -21,10 +21,11 @@ import IncomeItem from "../IncomeItem/IncomeItem";
   return (
     <IncomeStyled isDarkMode={isDarkMode}>
       <InnerLayout isDarkMode={isDarkMode}>
-        <h1>Incomes</h1>
-        <h2 className="total-income">
-          Total Income: <span>${totalIncome()}</span>
-        </h2>
+        <h1 className={isDarkMode ? "dark-mode-text font-serif font-extrabold text-4xl m-5" : " font-serif font-extrabold text-4xl m-5"}>Incomes</h1>
+        <h2 className={`total-income ${isDarkMode ? "dark-mode-text" : ""}`}>
+  Total Income: <span>LKR. {totalIncome()}</span>
+</h2>
+
         <div className="income-content">
           <div className="form-container">
             <Form isDarkMode={isDarkMode}/>
@@ -84,6 +85,9 @@ const IncomeStyled = styled.div`
     .incomes {
       flex: 1;
     }
+  }
+  .dark-mode-text {
+    color: #fff;
   }
 `;
 

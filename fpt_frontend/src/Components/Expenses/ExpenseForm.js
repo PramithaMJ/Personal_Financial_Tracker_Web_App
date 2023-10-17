@@ -6,7 +6,7 @@ import { useGlobalContext } from "../../context/globalContext";
 import Button from "../Button/Button";
 import { plus } from "../../utils/Icons";
 
-function ExpenseForm() {
+function ExpenseForm({ isDarkMode }) {
   const { addExpense,getExpenses, error, setError } = useGlobalContext();
   const [inputState, setInputState] = useState({
     title: "",
@@ -36,7 +36,8 @@ function ExpenseForm() {
   };
 
   return (
-    <ExpenseFormStyled onSubmit={handleSubmit}>
+    <ExpenseFormStyled isDarkMode={isDarkMode}
+     onSubmit={handleSubmit}>
       {error && <p className="error">{error}</p>}
       <div className="input-control">
         <input
@@ -45,6 +46,10 @@ function ExpenseForm() {
           name={"title"}
           placeholder="Expense Title"
           onChange={handleInput("title")}
+          style={{
+            color: isDarkMode ? "#fff" : "rgba(34, 34, 96, 1)",
+            background: isDarkMode ? "#222" : "transparent", 
+          }}
         />
       </div>
       <div className="input-control">
@@ -54,6 +59,10 @@ function ExpenseForm() {
           name={"amount"}
           placeholder={"Expense Amount"}
           onChange={handleInput("amount")}
+          style={{
+            color: isDarkMode ? "#fff" : "rgba(34, 34, 96, 1)",
+            background: isDarkMode ? "#222" : "transparent", 
+          }}
         />
       </div>
       <div className="input-control">
@@ -65,6 +74,14 @@ function ExpenseForm() {
           onChange={(date) => {
             setInputState({ ...inputState, date: date });
           }}
+          // customInput={
+          //   <input
+          //     style={{
+          //       color: isDarkMode ? "#fff" : "rgba(34, 34, 96, 1)",
+          //       background: isDarkMode ? "#222" : "transparent",
+          //     }}
+          //   />
+          // }
         />
       </div>
       <div className="selects input-control">
@@ -74,6 +91,10 @@ function ExpenseForm() {
           name="category"
           id="category"
           onChange={handleInput("category")}
+          style={{
+            color: isDarkMode ? "#fff" : "rgba(34, 34, 96, 1)",
+            background: isDarkMode ? "#222" : "transparent", // Background color in dark mode
+          }}
         >
           <option value="" disabled>
             Select Option
@@ -97,6 +118,11 @@ function ExpenseForm() {
           cols="30"
           rows="4"
           onChange={handleInput("description")}
+          className="placeholder-red-300"
+          style={{
+            color: isDarkMode ? "#fff" : "#222260",
+            background: isDarkMode ? "#222" : "transparent", 
+          }}
         ></textarea>
       </div>
       <div className="submit-btn">
@@ -112,7 +138,6 @@ function ExpenseForm() {
     </ExpenseFormStyled>
   );
 }
-
 const ExpenseFormStyled = styled.form`
   display: flex;
   flex-direction: column;
@@ -130,16 +155,16 @@ const ExpenseFormStyled = styled.form`
     background: transparent;
     resize: none;
     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
-    color: rgba(34, 34, 96, 0.9);
+    color: ${props => (props.isDarkMode ? '#ffffff' : '#222260')};
     &::placeholder {
-      color: rgba(34, 34, 96, 0.4);
+      color: ${props => (props.isDarkMode ? '#ffffff' : '#222260' )};
     }
   }
   .input-control {
     input {
       width: 100%;
     }
-  }
+    
 
   .selects {
     display: flex;

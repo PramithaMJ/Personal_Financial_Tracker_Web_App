@@ -10,7 +10,6 @@ import {
   circle,
   clothing,
   comment,
-  dollar,
   edit,
   food,
   freelance,
@@ -128,7 +127,7 @@ function IncomeItem({
         <div className="inner-content">
           <div className="text">
             <p>
-              {dollar} {amount}
+              LKR. {amount}
             </p>
             <p>
               {calender} {dateFormat(date)}

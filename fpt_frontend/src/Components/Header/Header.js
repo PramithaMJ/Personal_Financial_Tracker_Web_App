@@ -15,12 +15,23 @@ const Header = ({ isDarkMode }) => {
   return (
     <HeaderStyled isDarkMode={isDarkMode}>
       <div className="content">
-        <h1>Personal Finance Tracker</h1>
+      <h1 className={isDarkMode ? "dark-mode-text" : ""}>Personal Finance Tracker</h1>
         <nav>
+        <div className="flex justify-center">
+          <ul>
+          
+            <li>Home</li>
+            <Link to="/home">Dashboard</Link>
+            <Link to="/about" className="text-blue-800 hover:text-red-500">About</Link>
+            <li>Contact</li>
+            {/* <li>.........</li> */}
           {user && (
             <div>
-              <span>{user.email}</span>
-              <button onClick={handleClick}>Log out</button>
+              <span className="space-x-10 m-5">{user.email}</span>
+              <button onClick={handleClick} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Log out
+              </button>
+
             </div>
           )}
           {!user && (
@@ -28,14 +39,9 @@ const Header = ({ isDarkMode }) => {
               <Link to="/login">Login</Link>
               <Link to="/signup">Signup</Link>
             </div>
-          )}
-          <ul>
-            <li>Home</li>
-            <Link to="/home">Dashboard</Link>
-            <Link to="/about" className="text-blue-800 hover:text-red-500">About</Link>
-            <li>Contact</li>
-            <li>.........</li>
+              )}
           </ul>
+          </div>
         </nav>
       </div>
     </HeaderStyled>
@@ -44,11 +50,11 @@ const Header = ({ isDarkMode }) => {
 
 const HeaderStyled = styled.header`
   background-color: ${(props) =>
-    props.isDarkMode ? "#222" : "#fff"}; // Change colors based on isDarkMode
+    props.isDarkMode ? "#222" : "#fff"}; 
   color: ${(props) =>
     props.isDarkMode
       ? "#fff"
-      : "#222"}; // Change font color based on isDarkMode
+      : "#222"}; 
   padding: 20px 0;
   .content {
     max-width: 1200px;
@@ -56,6 +62,9 @@ const HeaderStyled = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  .dark-mode-text {
+    color: #fff;
   }
   h1 {
     font-size: 24px;

@@ -20,6 +20,8 @@ import {
 } from "react-router-dom";
 import Login from "./Components/Login/Login";
 import Signup from "./Components/SignUp/SignUp";
+import History from "./Components/History/History";
+import Transaction from "./Components/Transaction/Transaction";
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -31,7 +33,7 @@ function App() {
   };
 
   const [active, setActive] = useState(1);
-  const [isDarkMode, setIsDarkMode] = useState(false); // State for dark mode
+  const [isDarkMode, setIsDarkMode] = useState(true); // State for dark mode
 
   const global = useGlobalContext();
 
@@ -53,7 +55,7 @@ function App() {
       case 1:
         return <Dashboard isDarkMode={isDarkMode} />;
       case 2:
-        return <Dashboard isDarkMode={isDarkMode} />;
+        return <Transaction isDarkMode={isDarkMode} />;
       case 3:
         return <Income isDarkMode={isDarkMode} />;
       case 4:
@@ -61,6 +63,8 @@ function App() {
       case 5:
         return <Summary isDarkMode={isDarkMode} />;
       case 6:
+        return <History isDarkMode={isDarkMode} />;
+      case 7:
         return <Help isDarkMode={isDarkMode} />;
       default:
         return <Dashboard isDarkMode={isDarkMode} />;
@@ -83,7 +87,7 @@ function App() {
               <Switch
                 onChange={toggleDarkMode}
                 checked={isDarkMode}
-                onColor="#333" // Customize the switch colors as needed
+                onColor="#333" 
                 onHandleColor="#fff"
                 handleDiameter={25}
                 uncheckedIcon={false}
@@ -107,11 +111,11 @@ function App() {
 const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Set a minimum height to fill the viewport */
+  min-height: 100vh; 
 `;
 
 const MainContent = styled.main`
-  flex: 1; /* This ensures the main content fills the available space */
+  flex: 1; 
 `;
 
 const TopRightCorner = styled.div`

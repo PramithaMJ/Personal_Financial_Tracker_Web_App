@@ -33,6 +33,12 @@ export const menuItems = [
     },
     {
         id: 6,
+        title: "History",
+        icon: trend,
+        link: "/History",
+    },
+    {
+        id: 7,
         title: "Help",
         icon: trend,
         link: "/Help",
