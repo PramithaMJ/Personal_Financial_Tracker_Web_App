@@ -7,10 +7,17 @@ const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { signup, error, isLoading } = useSignup();
+  const [passwordMatchError, setPasswordMatchError] = useState('');
+  const [reenteredPassword, setReenteredPassword] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await signup(email, password);
+    if (password !== reenteredPassword) {
+      setPasswordMatchError("Passwords do not match");
+    } else {
+      setPasswordMatchError(""); // Clear the error if passwords match
+      await signup(email, password);
+    }
   }
 
   return (
@@ -47,6 +54,20 @@ const Signup = () => {
                 value={password}
               />
             </div>
+
+            <div className="mb-4">
+              <label className=" text-white text-2xl mb-8 mt-7">Password:</label>
+              <input
+                type="password"
+                placeholder="Re-enter Password"
+                className="mt-1 p-2 rounded border w-full text-black"
+                onChange={(e) => setReenteredPassword(e.target.value)}
+                value={reenteredPassword}
+              />
+
+
+            </div>
+             {passwordMatchError && <div className="text-red-500 mt-4">{passwordMatchError}</div>}
 
             <button
               disabled={isLoading}
