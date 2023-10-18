@@ -18,6 +18,7 @@ import IncomeItem from "../IncomeItem/IncomeItem";
   useEffect(() => {
     getIncomes();
   }, []);
+
   return (
     <IncomeStyled isDarkMode={isDarkMode}>
       <InnerLayout isDarkMode={isDarkMode}>
