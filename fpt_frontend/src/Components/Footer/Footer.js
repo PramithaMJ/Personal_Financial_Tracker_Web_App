@@ -6,7 +6,6 @@ const Footer = () => {
   return (
     <div>
       <h1 className="uppercase">
-        Hello World
       </h1>
        <FooterStyled>
       <p>&copy; 2023 Personal Finance Tracker. All rights reserved.</p>

@@ -3,7 +3,7 @@ import { useSignup } from "../../hook/useSignup";
 import { Link, Route } from 'react-router-dom';
 import LoginFooter from '../Footer/LoginFooter';
 import Login from "../Login/Login";
-import { email2, loginIcon, password2, signout, signup2 } from "../../utils/Icons";
+import { email2, facebook, google, loginIcon, password2, signout, signup2 } from "../../utils/Icons";
 
 const Signup = () => {
   const [email, setEmail] = useState('');
@@ -25,6 +25,12 @@ const Signup = () => {
   }
 
   return (
+    <div style={{
+      flex: 1,
+      backgroundColor: '#2A2746',
+      overflow: 'auto',
+      maxHeight: '100vh', // Set a maximum height for scrolling
+    }}>
     <div className="flex flex-col min-h-screen  " style={{ backgroundColor: '#2A2746' }}>
       <div className="flex justify-center items-center h-full mt-28">
         <div className="bg-transparent shadow-2xl p-18 rounded-lg w-full max-w-lg border border-black ">
@@ -88,6 +94,16 @@ const Signup = () => {
           <button className="w-full bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold p-5 rounded-full shadow-md focus:outline-none focus:ring focus:ring-blue-300">
           {loginIcon}  Back to Login
               </button>
+              <div className="text-white text-center mt-4"> - or - </div>
+              <hr className="mt-3"/>
+              <button className="w-full mb-4 mt-4 p-2 bg-red-800 text-white font-bold rounded-md hover:bg-green-700"
+                        >
+                        {google} Continue With Google
+                        </button>
+              <button className="w-full mb-4 mt-4 p-2 bg-blue-800 text-white font-bold rounded-md hover:bg-green-700"
+                        >
+                        {facebook} Continue With Facebook
+                        </button>
             </Link>
           </div>
           </form>
@@ -97,6 +113,7 @@ const Signup = () => {
       <div className="mt-28 overflow-scroll">
         <LoginFooter />
       </div>
+    </div>
     </div>
   );
 }

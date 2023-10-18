@@ -109,6 +109,16 @@ const handleGoogleSignIn = async () => {
 
 
   return (
+    <div style={{
+      flex: 1,
+      backgroundColor: '#2A2746',
+
+      overflow: 'auto',
+      maxHeight: '100vh', // Set a maximum height for scrolling
+    }}>
+     
+    
+
    
     <div style={{ display: 'flex', height: '100vh', backgroundColor: 'lightgray', overflow: "auto"}}>
   
@@ -264,6 +274,8 @@ const handleGoogleSignIn = async () => {
         </div>
 
       </div>
+        <LoginFooter/>
+        </div>
   );
 
 }

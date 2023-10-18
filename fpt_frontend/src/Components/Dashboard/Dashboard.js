@@ -4,7 +4,17 @@ import { InnerLayout } from "../../styles/Layout";
 import Chart from "../Chart/Chart";
 import { useGlobalContext } from "../../context/globalContext";
 import History from "../History/RecentHistory";
-import { Bar, Pie } from "react-chartjs-2";
+import { Pie } from "react-chartjs-2";
+
+import {
+  Tooltip,
+  BarChart,
+  XAxis,
+  YAxis,
+  Legend,
+  CartesianGrid,
+  Bar,
+} from "recharts";
 
 const generateExpenseChartData = (expenses) => {
   const categories = {};
@@ -36,6 +46,8 @@ const generateExpenseChartData = (expenses) => {
 
   return data;
 };
+
+
 
 const generateIncomeChartData = (incomes) => {
   const categories = {}; // Object to store category totals
@@ -69,6 +81,7 @@ const generateIncomeChartData = (incomes) => {
   return data;
 };
 
+
 const Dashboard = ({ isDarkMode }) => {
   const {
     totalExpenses,
@@ -87,6 +100,19 @@ const Dashboard = ({ isDarkMode }) => {
 
   const expensesPieChartData = generateExpenseChartData(expenses);
   const incomePieChartData = generateIncomeChartData(incomes);
+
+
+ // Calculate total income
+ const totalIncome2 = incomes.reduce((total, income) => total + income.amount, 0);
+
+ // Calculate total expenses
+ const totalExpenses2 = expenses.reduce((total, expense) => total + expense.amount, 0);
+
+  const barChartData = [
+    { name: "Total Income", amount: totalIncome2 },
+    { name: "Total Expenses", amount: totalExpenses2 },
+  ];
+  
 
   return (
     <DashboardStyled isDarkMode={isDarkMode}>
@@ -140,7 +166,24 @@ const Dashboard = ({ isDarkMode }) => {
           </div>
         </div>
       </div>
+      
+
+    
+     
     </InnerLayout>
+    <BarChart
+        width={600}
+        height={300}
+        data={barChartData}
+        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Bar dataKey="amount" fill="#8884d8" />
+      </BarChart>
   </DashboardStyled>
 );
 };

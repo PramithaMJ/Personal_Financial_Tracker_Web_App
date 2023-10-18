@@ -1,7 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../../context/globalContext';
-import { Bar, Bubble, Doughnut, Line, Pie, Radar } from 'react-chartjs-2'
+import {  Bubble, Doughnut, Line, Pie, Radar } from 'react-chartjs-2'
+import {
+  Tooltip,
+  BarChart,
+  XAxis,
+  YAxis,
+  Legend,
+  CartesianGrid,
+  Bar,
+} from "recharts";
 
 const Summary = ({isDarkMode}) => {
   const { incomes, expenses } = useGlobalContext();
@@ -117,6 +126,10 @@ const Summary = ({isDarkMode}) => {
       },
     ],
   };
+  const barChartData = [
+    { name: 'Income', amount: totalIncome },
+    { name: 'Expenses', amount: totalExpenses },
+  ];
 
 
 
@@ -196,11 +209,27 @@ const Summary = ({isDarkMode}) => {
       </TotalContainer>
 
         <Line data={lineChartData} />
-  <div className="charts-container">
-  <Doughnut data={doughnutChartData} />
-  <Bubble data={bubbleChartData} />
-</div>
+        <ChartRow>
+        <ChartContainer>
+          <Doughnut data={doughnutChartData} />
+        </ChartContainer>
+        <ChartContainer>
+          <Bubble data={bubbleChartData} />
+        </ChartContainer>
+      </ChartRow>
+<div>
+  
+      <BarChart width={600} height={300} data={barChartData}>
+        <XAxis dataKey="name" stroke="#8884d8" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+        <Bar dataKey="amount" fill="#8884d8" barSize={30} />
+      </BarChart>
+    
 
+</div>
       
 
     </SummaryContainer>
@@ -250,21 +279,26 @@ const SummaryTable = styled.table`
 `;
 
 const TotalContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  p {
-    font-weight: bold;
-  }
+display: flex;
+justify-content: space-around;
+p {
+  font-weight: bold;
+}
 `;
 
 const ChartRow = styled.div`
-  display: flex;
-  justify-content: space-between;
+display: flex;
+justify-content: space-between;
 `;
 
+
 const PieChartContainer = styled.div`
-  flex: 1; 
-  margin-top: 1rem;
+flex: 1;
+margin-top: 1rem;
+`;
+
+const ChartContainer = styled.div`
+  width: 50%; /* Adjust the width to control the size of the charts */
 `;
 
 export default Summary;

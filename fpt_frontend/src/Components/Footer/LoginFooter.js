@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaLinkedin, FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa'; // Import the relevant icons
+import { FaLinkedin, FaFacebook, FaInstagram, FaGit } from 'react-icons/fa';
 
 const About = () => {
   const location = useLocation();
@@ -64,11 +64,11 @@ const About = () => {
               className="w-50 h-20 mr-4"
             />
           </a>
-          <a href="pramitha-fb-link" target="_blank" rel="noopener noreferrer">
+          <a href="https://web.facebook.com/Pramitha.ayasooriya/" target="_blank" rel="noopener noreferrer">
             <FaFacebook className="text-blue-500 text-2xl mr-4" />
           </a>
-          <a href="pramitha-twitter-link" target="_blank" rel="noopener noreferrer">
-            <FaTwitter className="text-blue-500 text-2xl mr-4" />
+          <a href="https://github.com/PramithaMJ" target="_blank" rel="noopener noreferrer">
+            <FaGit className="text-blue-500 text-2xl mr-4" />
           </a>
           <a href="pramitha-instagram-link" target="_blank" rel="noopener noreferrer">
             <FaInstagram className="text-blue-500 text-2xl mr-4" />
