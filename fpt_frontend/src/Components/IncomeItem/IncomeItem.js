@@ -26,6 +26,11 @@ import {
   pocketMoney,
   commition,
   interest,
+  gift,
+  rent,
+  taxi,
+
+
   
 
 } from "../../utils/Icons";
@@ -62,7 +67,6 @@ function IncomeItem({
   const handleSubmit = (e) => {
     e.preventDefault();
     const updatedIncome = {
-      // (update with new data)
       id,
       title,
       description,
@@ -71,7 +75,6 @@ function IncomeItem({
       category,
     };
 
-    // Call the updateItem function from props to update the income
     updateItem(updatedIncome);
   };
 
@@ -99,6 +102,15 @@ function IncomeItem({
         return commition;
       case "interest":
         return interest;
+      case "gift":
+        return gift;
+      case "rent":
+        return rent;
+      case "taxi":
+        return taxi;
+      case "food":
+        return food;
+
 
       default:
         return "";
@@ -123,6 +135,11 @@ function IncomeItem({
         return freelance;
       case "other":
         return circle;
+      case "rent":
+        return rent;
+      case "gift":
+        return gift;
+      
       default:
         return "";
     }
@@ -164,7 +181,7 @@ function IncomeItem({
             {!isUpdating && (
               <Button
                 icon={edit}
-                // name={isEditing ? "Save" : "Update"} // Change button label based on isEditing state
+                // name={isEditing ? "Save" : "Update"} 
                 bPad="1rem"
                 bRad="50%"
                 bg="var(--primary-color"
@@ -208,16 +225,21 @@ function IncomeItem({
               setIsUpdating={setIsUpdating}
             />
           ) : (
-            // Render income details and buttons when isUpdating is false
             <div>
               <p>Title: {title}</p>
               <p>Description: {description}</p>
-              <p>Amount: ${amount}</p>
+              <p>Amount: LKR.{amount}</p>
               <p>Date: {date}</p>
               <p>Type: {type}</p>
               <p>Category: {category}</p>
-              <button onClick={handleUpdateClick}>Edit</button>
-              <button onClick={() => deleteItem(id)}>Delete</button>
+              <button
+  onClick={handleUpdateClick}
+  className="bg-purple-950 hover:opacity-90 text-white font-bold py-1 px-3 rounded focus:outline-none focus:shadow-outline"
+>
+  Edit
+</button>
+
+              {/* <button onClick={() => deleteItem(id)}>Delete</button> */}
             </div>
           )}
         </div>

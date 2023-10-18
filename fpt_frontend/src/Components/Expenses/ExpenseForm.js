@@ -106,6 +106,11 @@ function ExpenseForm({ isDarkMode }) {
           <option value="takeaways">Takeaways</option>
           <option value="clothing">Clothing</option>
           <option value="travelling">Travelling</option>
+          <option value="rent">Rent</option>
+          <option value="gift">Gift</option>
+          <option value="food">food</option>
+          <option value="taxi">taxi</option>
+  
           <option value="other">Other</option>
         </select>
       </div>
