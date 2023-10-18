@@ -8,8 +8,73 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser ,faLock, faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons';
 import { facebook, google,loginIcon, signup  } from '../../utils/Icons';
 
+import {auth, provider, providerf} from '../../FirebaseConfig';
+import { FacebookAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+
+
+
 
 const Login = () => {
+
+const [user, setUser] = useState(null);
+
+// const handleGoogleSignIn = () => {
+//   signInWithPopup(auth,provider)
+//   .then((result) => {
+//     const user = result.user;
+//     console.log(user);
+//     setUser(user);
+//   }
+//   )
+//   .catch((error) => {
+//     console.log(error.message);
+//   }
+//   )
+//}
+
+    const handleFacebookSignIn = () => {
+        signInWithPopup(auth,providerf).then((result) => {
+        setUser(result.user);
+        console.log(result.user.providerData);
+
+        const credential = FacebookAuthProvider.credentialFromResult(result);
+        const accessToken = credential.accessToken;
+        fetch(`https://graph.facebook.com/${result.user.providerData[0].uid}/picture?type=1arge&&access_token=${accessToken}`)
+        .then((response) => response.blob())
+        .then((blob) => {
+          setProfilePic(URL.createObjectURL(blob));
+        });
+
+
+    }).catch((error) => {
+        console.log(error.message);
+    })
+    }
+
+const handleGoogleSignIn = async () => {
+  try {
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider();
+
+    const result = await signInWithPopup(auth, provider);
+    const user = result.user;
+
+
+    const isUserRegistered = true;
+
+    if (!isUserRegistered) {
+      
+      // Perform registration logic here (e.g., save user data to Firebase Firestore).
+    }
+
+    // After registration or if the user is already registered, set the user state.
+    setUser(user);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -26,6 +91,22 @@ const Login = () => {
     await login(email, password);
   };
   
+
+  const handleLogout = () => {
+    // auth.signOut()
+    // .then(() => {
+    //   setUser(null);
+    // })
+    // .catch((error) => {
+    //   console.log(error.message);
+    // })
+    setUser(null);
+  }
+
+
+
+
+
 
   return (
    
@@ -118,13 +199,7 @@ const Login = () => {
         </button>
         {error && <div className=" text-red-500">{error}</div>}
 
-        <button className="w-full mb-4 mt-4 p-2 bg-red-500 text-white font-bold rounded-md hover:bg-green-700">
-        {google}  Continue With Google
-        </button>
-
-        <button className="w-full mb-4 mt-4 p-2 bg-blue-800 text-white font-bold rounded-md hover:bg-green-700">
-         {facebook} Continue With Facebook
-        </button>
+       
         
         <hr className="my-4" />
         <p className='text-white'>or create new account</p>
@@ -133,14 +208,66 @@ const Login = () => {
            {signup}  Sign Up
           </button>
         </Link>
-      </form>
-    </div>
-  </div>
 
- 
-</div>
-  </div>
+        
+      </form>
+      <div>
+         {user?(<>
+      
+        <button className='w-full mb-4 mt-4 p-2 bg-red-500 text-white font-bold rounded-md hover:bg-green-700'
+        onClick={handleLogout}>
+          LOGOUT GOOGLE
+        </button>
+        <h3 className='text-white'>Welcome {user.displayName}</h3>
+        <p className='text-white'>{user.email}</p>
+        <div className='flex justify-center'>
+          <img src={user.photoURL} alt={user.displayName} referrerPolicy='no-referrer' />
+        </div>
+        
+        </>):(
+
+          <button className="w-full mb-4 mt-4 p-2 bg-red-500 text-white font-bold rounded-md hover:bg-green-700"
+                  onClick={handleGoogleSignIn}
+          >
+                  {google}  Continue With Google
+          </button>
+        )}
+      </div>
+      <div>
+
+          {user?(<>
+            {/* <button className='w-full mb-4 mt-4 p-2 bg-red-500 text-white font-bold rounded-md hover:bg-green-700'
+        onClick={handleLogout}>
+          LOGOUT Facebook
+        </button>
+        <h3 className='text-white'>Welcome {user.displayName}</h3>
+        <p className='text-white'>{user.email}</p>
+        <div className='flex justify-center'>
+          <img src={user.photoURL} alt={user.displayName} referrerPolicy='no-referrer' />
+        </div> */}
+        
+                </>):(
+                        <button className="w-full mb-4 mt-4 p-2 bg-blue-800 text-white font-bold rounded-md hover:bg-green-700"
+                        onClick={handleFacebookSignIn}>
+                        {facebook} Continue With Facebook
+                        </button>
+                )}
+                </div>
+
+                  
+
+
+                    
+                    
+            </div>
+          </div>
+        </div>
+
+      </div>
   );
+
 }
+
+      
 
 export default Login;
