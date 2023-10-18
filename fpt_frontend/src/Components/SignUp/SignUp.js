@@ -3,6 +3,7 @@ import { useSignup } from "../../hook/useSignup";
 import { Link, Route } from 'react-router-dom';
 import LoginFooter from '../Footer/LoginFooter';
 import Login from "../Login/Login";
+import { email2, loginIcon, password2, signout, signup2 } from "../../utils/Icons";
 
 const Signup = () => {
   const [email, setEmail] = useState('');
@@ -37,7 +38,7 @@ const Signup = () => {
 
 
             <div className="mb-4">
-              <label className=" text-white text-2xl mb-8 mt-7">Email address:</label>
+              <label className=" text-white text-2xl mb-8 mt-7">{email2} Email address:</label>
               <input
                 type="email"
                 placeholder="Email or Username"
@@ -48,7 +49,7 @@ const Signup = () => {
             </div>
 
             <div className="mb-4">
-              <label className=" text-white text-2xl mb-8 mt-7">Password:</label>
+              <label className=" text-white text-2xl mb-8 mt-7">{password2} Password:</label>
               <input
                 type="password"
                 placeholder="Password"
@@ -59,7 +60,7 @@ const Signup = () => {
             </div>
 
             <div className="mb-4">
-              <label className=" text-white text-2xl mb-8 mt-7">Password:</label>
+              <label className=" text-white text-2xl mb-8 mt-7"> {password2} Password:</label>
               <input
                 type="password"
                 placeholder="Re-enter Password"
@@ -76,9 +77,7 @@ const Signup = () => {
         className="w-full bg-blue-500 text-white font-bold p-2 rounded hover:bg-blue-700"
         onClick={handleSubmit} 
       >
-        
-
-        Sign up
+        {signup2} Sign up
       </button>
 
             {error && <div className="text-red-500 mt-4">{error}</div>}
@@ -87,7 +86,7 @@ const Signup = () => {
             <p className="text-white m-5">Already have an account?</p>
             <Link to="/login" className="text-blue-500 hover:text-blue-700">
           <button className="w-full bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold p-5 rounded-full shadow-md focus:outline-none focus:ring focus:ring-blue-300">
-                Back to Login
+          {loginIcon}  Back to Login
               </button>
             </Link>
           </div>

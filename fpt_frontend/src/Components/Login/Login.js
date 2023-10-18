@@ -6,6 +6,7 @@ import loginImage from '../../img/loginImage.png';
 import LoginFooter from '../Footer/LoginFooter';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser ,faLock, faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons';
+import { facebook, google,loginIcon, signup  } from '../../utils/Icons';
 
 
 const Login = () => {
@@ -113,23 +114,23 @@ const Login = () => {
           disabled={isLoading}
           className={`w-full mb-4 mt-4 p-2 bg-blue-500 text-white font-bold rounded-md
           ${isLoading ? 'bg-blue-300 cursor-not-allowed' : 'hover:bg-blue-700'}`}>
-          Log in
+         {loginIcon}  Log in
         </button>
         {error && <div className=" text-red-500">{error}</div>}
 
         <button className="w-full mb-4 mt-4 p-2 bg-red-500 text-white font-bold rounded-md hover:bg-green-700">
-          Continue With Google
+        {google}  Continue With Google
         </button>
 
         <button className="w-full mb-4 mt-4 p-2 bg-blue-800 text-white font-bold rounded-md hover:bg-green-700">
-          Continue With Facebook
+         {facebook} Continue With Facebook
         </button>
         
         <hr className="my-4" />
         <p className='text-white'>or create new account</p>
         <Link to="/signup">
           <button className="w-full mb-4 mt-4 h-12 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-700">
-           Sign Up
+           {signup}  Sign Up
           </button>
         </Link>
       </form>
