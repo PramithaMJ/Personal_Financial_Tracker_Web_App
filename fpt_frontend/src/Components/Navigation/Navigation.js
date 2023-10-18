@@ -27,7 +27,7 @@ function Navigation({active, setActive}) {
                     <p>Personal Finance Tracker</p>
                 </div>
             </div>
-            <ul className="menu-items">
+            {/* <ul className="menu-items">
                 {menuItems.map((item) => {
                     return <li
                         key={item.id}
@@ -38,10 +38,29 @@ function Navigation({active, setActive}) {
                         <span>{item.title}</span>
                     </li>
                 })}
+            </ul> */}
+
+            <ul className="menu-items">
+            {menuItems.map((item) => (
+                <li
+                key={item.id}
+                onClick={() => setActive(item.id)}
+                className={`group cursor-pointer relative py-3 px-4 transition-transform transform ${
+                    active === item.id ? 'active bg-purple-600 rounded-tr-2xl rounded-br-2xl' : 'hover:bg-gray-200 '
+                } hover:scale-105 hover:shadow-lg`}
+                >
+                {item.icon}
+                <span className="ml-2">{item.title}</span>
+                <div
+                    className={`absolute inset-0 hidden group-hover:block bg-white opacity-10 transition-opacity duration-300`}
+                ></div>
+                </li>
+            ))}
             </ul>
+
             <div className="bottom-nav">
-            <button  onClick={handleClick}>
-                {signout}Sign out
+            <button  onClick={handleClick} className='bg-purple-950 hover:opacity-90 text-white font-bold py-1 px-3 rounded focus:outline-none focus:shadow-outline'>
+                {signout}  Sign out
                 </button>
             </div>
         </NavStyled>
