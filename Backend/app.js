@@ -7,7 +7,7 @@ import { promises as fsPromises } from "fs";
 import os from "os";
 import { fileURLToPath } from "url";
 import path from "path";
-import "dotenv/config";
+import "dotenv/config.js";
 
 
 const __filename = fileURLToPath(import.meta.url);
