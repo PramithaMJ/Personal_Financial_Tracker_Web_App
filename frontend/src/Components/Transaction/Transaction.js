@@ -32,12 +32,12 @@ function Transaction({ isDarkMode }) {
         <div className="stats-con">
           <div className="history-con">
             <HistoryStyled>
-              <h2 className="text-2xl font-bold text-gray-800 dark-mode-text2">History</h2>
+              <h2 className="text-2xl font-bold text-gray-800 dark-mode-text2 transition-transform transform hover:scale-105">History</h2>
 
               {history.map((item) => {
                 const { _id, title, amount, type } = item;
                 return (
-                  <div key={_id} className="history-item">
+                  <div key={_id} className="history-item transition-transform transform hover:scale-105">
                     <p style={{
                       color: type === 'expense' ? 'red' : 'var(--color-green)'
                     }}>
@@ -55,16 +55,16 @@ function Transaction({ isDarkMode }) {
                 );
               })}
             </HistoryStyled>
-            <h2 className="text-2xl font-bold text-gray-800 dark-mode-text2">Min <span className='dark-mode-text2'>Salary</span>Max</h2>
+            <h2 className="text-2xl font-bold text-gray-800 dark-mode-text2 transition-transform transform hover:scale-105">Min <span className='dark-mode-text2'>Salary</span>Max</h2>
 
-            <div className="salary-item">
+            <div className="salary-item transition-transform transform hover:scale-105">
             <p>LKR.{Math.min(...incomes.map((item) => item.amount))}</p>
-          <p>LKR.{Math.max(...incomes.map((item) => item.amount))}</p>
+          <p className='transition-transform transform hover:scale-105'>LKR.{Math.max(...incomes.map((item) => item.amount))}</p>
             </div>
-            <h2 className="text-2xl font-bold text-gray-800 dark-mode-text2" >Min <span className=' dark-mode-text2'>Expense</span>Max</h2>
-            <div className="salary-item">
-            <p>LKR.{Math.min(...expenses.map((item) => item.amount))}</p>
-          <p>LKR.{Math.max(...expenses.map((item) => item.amount))}</p>
+            <h2 className="text-2xl font-bold text-gray-800 dark-mode-text2 transition-transform transform hover:scale-105" >Min <span className=' dark-mode-text2'>Expense</span>Max</h2>
+            <div className="salary-item transition-transform transform hover:scale-105">
+            <p className='transition-transform transform hover:scale-105'>LKR.{Math.min(...expenses.map((item) => item.amount))}</p>
+          <p className='transition-transform transform hover:scale-105'>LKR.{Math.max(...expenses.map((item) => item.amount))}</p>
             </div>
           </div>
         </div>
