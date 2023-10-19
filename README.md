@@ -51,43 +51,49 @@ https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/12373026
 ## Screenshots
 
 -- Getting Started
-<img width="1710" alt="Screenshot 2023-10-20 at 2 14 39 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/db69c712-344a-4ff6-995c-b3b763b1b07a">
+<img width="1710" alt="Screenshot 2023-10-20 at 2 14 39 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/d6ba0b27-ebb6-4ae7-af31-4211d479cc5f">
 
 -- Loggin Page
-<img width="1710" alt="Screenshot 2023-10-20 at 2 14 58 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/3d6e524e-6873-4945-a660-e49a1a92bc88">
+<img width="1710" alt="Screenshot 2023-10-20 at 2 14 58 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/1421c620-2ede-4166-b4b1-a33e55f3e85e">
+
 
 -- SignUp Page
-<img width="1710" alt="Screenshot 2023-10-20 at 2 15 12 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/8196f3c3-3956-4156-87c8-77ac6f679015">
+<img width="1710" alt="Screenshot 2023-10-20 at 2 15 12 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/50350eea-4751-4a39-856a-9caecc89c441">
+
 
 -- Signup with google
-<img width="1710" alt="Screenshot 2023-10-20 at 2 15 23 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/ab57cb3e-ae6d-401b-a3e4-7805c781c696">
-<img width="1710" alt="Screenshot 2023-10-20 at 2 17 53 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/60be6a2c-1fc7-4e12-84fc-61e40d23143c">
+<img width="1710" alt="Screenshot 2023-10-20 at 2 15 23 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/aa8dffc0-e3ca-4c52-8179-7d213f3ddfb1">
+<img width="1710" alt="Screenshot 2023-10-20 at 2 17 53 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/8f913f07-a95f-464a-88c0-379d121347e7">
 
 -- Dashboard
-<img width="1710" alt="Screenshot 2023-10-20 at 2 15 40 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/12dc5003-922e-4686-ad15-343e20ff9632">
-<img width="1710" alt="Screenshot 2023-10-20 at 2 16 54 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/4262733c-ce43-4c62-b9f6-b89ceafe3821">
+<img width="1710" alt="Screenshot 2023-10-20 at 2 15 40 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/0893706e-c1e7-435d-a5f2-d3dcbc98385b">
+<img width="1710" alt="Screenshot 2023-10-20 at 2 16 54 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/2815cc99-54c8-48c5-8018-c5e1358bfd64">
 
 -- Transaction
-<img width="1710" alt="Screenshot 2023-10-20 at 2 16 02 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/35bbeff3-bb0e-4e2d-bbd4-6e3e3962c873">
-<img width="1710" alt="Screenshot 2023-10-20 at 2 17 01 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/7de09dfd-f829-47e4-9e1e-2b71689720ab">
+<img width="1710" alt="Screenshot 2023-10-20 at 2 16 02 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/7880a734-40af-4f18-bd34-6c90098edfa9">
+<img width="1710" alt="Screenshot 2023-10-20 at 2 17 01 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/5956331e-7bb2-4625-869f-ea672f7c3382">
 
 -- Incomes
-<img width="1710" alt="Screenshot 2023-10-20 at 2 16 12 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/d5191c22-b6a5-4216-a0ea-c4a15170b40b">
-<img width="1710" alt="Screenshot 2023-10-20 at 2 17 08 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/9074ce33-670e-4d58-ad08-30fb123c0c3b">
+<img width="1710" alt="Screenshot 2023-10-20 at 2 16 12 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/a04c98fb-3e13-45d4-b77c-6e29035c0468">
+<img width="1710" alt="Screenshot 2023-10-20 at 2 17 08 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/19e44704-ba7f-4df7-bb60-f89774a73201">
 
 -- Expenses
-<img width="1710" alt="Screenshot 2023-10-20 at 2 16 21 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/5ec68c7c-44e9-4918-8e96-17fb71c9e51d">
-<img width="1710" alt="Screenshot 2023-10-20 at 2 17 15 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/c810965c-05bc-486c-870d-66fcf96241e7">
+<img width="1710" alt="Screenshot 2023-10-20 at 2 16 21 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/3152330d-59cd-4e52-8c94-c32e849a3435">
+<img width="1710" alt="Screenshot 2023-10-20 at 2 17 15 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/718e1d49-1e34-4eec-afcb-c36059aa7357">
 
 -- Summary
-<img width="1710" alt="Screenshot 2023-10-20 at 2 16 29 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/5823ef47-8ac6-4427-9b70-92f6cad66c59">
-<img width="1710" alt="Screenshot 2023-10-20 at 2 17 22 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/470ce859-19f0-4bd7-9294-3ac05af7cf53">
+<img width="1710" alt="Screenshot 2023-10-20 at 2 16 29 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/14fb987a-bff9-45ea-9a60-4e9ef4d763e4">
+<img width="1710" alt="Screenshot 2023-10-20 at 2 17 22 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/f032ce67-fbac-4ff4-b9a2-d20b5ab038d8">
 
 -- History
-<img width="1710" alt="Screenshot 2023-10-20 at 2 16 36 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/a00416eb-fc62-4073-891d-6c7c95145cdb">
+<img width="1710" alt="Screenshot 2023-10-20 at 2 16 29 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/6556c20d-6fe7-41a7-8cac-faebed67a8e9">
+<img width="1710" alt="Screenshot 2023-10-20 at 2 17 29 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/2b90a7c3-1ce6-4c11-8a06-0c8d024951aa">
 
-<img width="1710" alt="Screenshot 2023-10-20 at 2 17 29 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/afa751c0-6010-4e10-8d4a-adeea0f0ea0e">
 
 -- Help
-<img width="1710" alt="Screenshot 2023-10-20 at 2 16 46 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/d5a16de0-f4ec-48ca-a19f-a13be1685f0e">
-<img width="1710" alt="Screenshot 2023-10-20 at 2 17 39 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/7fa7708a-6c9c-4f52-b363-9c9632cbc5b5">
+<img width="1710" alt="Screenshot 2023-10-20 at 2 16 36 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/35c3cfa9-4cfc-4a7b-9c08-9c77a42d298b">
+<img width="1710" alt="Screenshot 2023-10-20 at 2 17 39 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/7114e65f-e507-42fa-90c7-79819d0b7340">
+
+-- Footer
+<img width="1710" alt="Screenshot 2023-10-20 at 2 18 07 AM" src="https://github.com/PramithaMJ/Personal_Financial_Tracker_Web_App/assets/123730262/60f89d8e-3cce-4cc9-a4f5-25bcab6a4865">
+
