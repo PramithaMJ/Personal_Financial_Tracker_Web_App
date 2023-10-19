@@ -112,7 +112,14 @@ const Dashboard = ({ isDarkMode }) => {
     { name: "Total Income", amount: totalIncome2 },
     { name: "Total Expenses", amount: totalExpenses2 },
   ];
-  
+  // const filterData = (data, query) => {
+  //   return data.filter((item) =>
+  //     item.category.toLowerCase().includes(query.toLowerCase())
+  //   );
+  // };
+
+  // const filteredExpenses = filterData(expenses, searchQuery);
+  // const filteredIncomes = filterData(incomes, searchQuery);
 
   return (
     <DashboardStyled isDarkMode={isDarkMode}>
@@ -164,6 +171,8 @@ const Dashboard = ({ isDarkMode }) => {
             <p className="transition-transform transform hover:scale-105">LKR.{Math.min(...expenses.map((item) => item.amount))}</p>
             <p className="transition-transform transform hover:scale-105">LKR.{Math.max(...expenses.map((item) => item.amount))}</p>
           </div>
+
+          
         </div>
       </div>
       

@@ -6,22 +6,28 @@ import loginImage from '../../img/loginImage.png';
 import LoginFooter from '../Footer/LoginFooter';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser ,faLock, faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons';
-import { facebook, google,loginIcon, signup  } from '../../utils/Icons';
+import { facebook, google,loginIcon, signup as J  } from '../../utils/Icons';
+// im Reg = useSignup();
+// import * as Reg from '../../hook/useSignup';
+//useLogin
+import { useSignup } from '../../hook/useSignup';
 
 import {auth, provider, providerf} from '../../FirebaseConfig';
 import { FacebookAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import axios from 'axios';
 
 
 
 
 const Login = () => {
+  const { login, error, isLoading } = useLogin();
 
 const [user, setUser] = useState(null);
-
+const { signup } = useSignup();
 // const handleGoogleSignIn = () => {
 //   signInWithPopup(auth,provider)
 //   .then((result) => {
-//     const user = result.user;
+//     const user = result.use
 //     console.log(user);
 //     setUser(user);
 //   }
@@ -51,24 +57,51 @@ const [user, setUser] = useState(null);
     })
     }
 
+const checkUser = async (email) => 
+{
+  try{
+    const response = await axios.get(`http://localhost:8000/api/user/${email}/`);  
+    console.log(response);
+  
+    if (response.status === 200) {
+      return true;
+    } else {
+      console.log("here")
+      console.log(response.data);
+      return false;
+    }
+    return true;
+  }catch(error){
+    return false;
+    console.log(error.message);
+  }
+}
+
+const passwordGenerator = () => {
+  return "PasswordForFirebase*123"
+}
+
+
+
 const handleGoogleSignIn = async () => {
   try {
     const auth = getAuth();
     const provider = new GoogleAuthProvider();
 
     const result = await signInWithPopup(auth, provider);
+    // console.log(result.user.email)
     const user = result.user;
 
 
-    const isUserRegistered = true;
-
+    const isUserRegistered = await checkUser(user.email);
+    // console.log(isUserRegistered);
     if (!isUserRegistered) {
-      
-      // Perform registration logic here (e.g., save user data to Firebase Firestore).
+      await signup(user.email, passwordGenerator());
+
     }
 
-    // After registration or if the user is already registered, set the user state.
-    setUser(user);
+    await login(user.email, passwordGenerator());
+
   } catch (error) {
     console.log(error.message);
   }
@@ -83,7 +116,6 @@ const handleGoogleSignIn = async () => {
     setShowPassword(!showPassword);
   };
   
-  const { login, error, isLoading } = useLogin();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -204,7 +236,7 @@ const handleGoogleSignIn = async () => {
         <Link to="/signup">
           <button className="w-full mb-4 mt-4 h-12 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-700
           transition-transform transform hover:scale-125">
-           {signup}  Sign Up
+           {J}  Sign Up
           </button>
         </Link>
       </form>

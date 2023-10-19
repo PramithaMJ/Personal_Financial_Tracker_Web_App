@@ -77,4 +77,23 @@ userSchema.statics.login = async function (email, password) {
   return user;
 };
 
+//check user available
+userSchema.statics.checkUser = async function (email) {
+  // validation
+  if (!email) {
+    throw Error("All fields must be filled");
+  }
+  if (!validator.isEmail(email)) {
+    throw Error("Email not valid");
+  }
+
+  const user = await this.findOne({ email });
+
+  if (!user) {
+    throw Error("Email not registered");
+  }
+
+  return user;
+};
+
 export default mongoose.model("User", userSchema);

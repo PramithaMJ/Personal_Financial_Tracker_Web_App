@@ -34,6 +34,56 @@ const signupUser = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
+
+
+const signupUserFromFirebase = async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const user = await User.signup(email, password);
+
+    //create a token
+    const token = createToken(user._id);
+
+    res.status(200).json({ email, token });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+const signInfirebase = async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const user = await User.signup(email, password);
+
+    //create a token
+    const token = createToken(user._id);
+
+    res.status(200).json({ email, token });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+const auth = async (req, res) => {
+ //get from query
+  const { email } = req.params;
+  // console.log(email);
+  try {
+
+    const user = await User.checkUser(email);
+
+    console.log(user);
+    res.status(200).json({ email });
+
+    
+
+    
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+
 /*
  const google = async (req, res) => {
 
@@ -79,4 +129,4 @@ const signupUser = async (req, res) => {
   }
 };
 */
-export { loginUser, signupUser };
+export { loginUser, signupUser,signupUserFromFirebase ,signInfirebase ,auth};
