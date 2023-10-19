@@ -18,7 +18,6 @@ function UpdateForm({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Prepare updated income data
     const updatedIncome = {
       id,
       title,
@@ -28,10 +27,7 @@ function UpdateForm({
       category,
     };
 
-    // Call the updateItem function from props to update the income
     updateItem(updatedIncome);
-   
-    // Close the update form
     setIsUpdating(false);
   };
 
@@ -89,10 +85,9 @@ function UpdateForm({
           className="border border-gray-400 rounded p-2"
         />
          </div>
-<button type="submit" class="bg-purple-700 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded">
-  Save Changes
-</button>
-
+            <button type="submit" class="bg-purple-700 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded">
+              Save Changes
+            </button>
         {/* <button onClick={() => updateItem(null)}>Cancel</button> */}
       </form>
     </div>

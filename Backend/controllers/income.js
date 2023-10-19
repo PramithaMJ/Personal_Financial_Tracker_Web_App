@@ -15,7 +15,6 @@ export const addIncomes = async (req, res) => {
   });
 
   try {
-    //     validations
     if (!title || !category || !description || !date) {
       return res.status(400).json({ message: "Please fill all the fields" });
     }
@@ -43,32 +42,6 @@ export const getIncomes = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-/*
-export const deleteIncomes = async (req, res) => {
-  const { id } = req.params;
-  //console.log(id);
-  IncomeSchema.findByIdAndDelete(id)
-  .then((income) => {
-    res.status(200).json({ message: "Income Deleted" });
-  })
-  .catch((err)=>{
-    res.status(500).json({message: "Servre Error"})
-  })
-};
-*/
-
-// export const deleteIncomes = async (req, res) => {
-
-//     try {
-//       const incomes = await IncomeSchema.findByIdAndDelete({ user: req.user });
-//       res.status(200).json({incomes})
-//     } catch (error) {
-//       res.status(500).json({message: 'Server Error'})
-//     }
-  
-//   };
-
-
 
 export const deleteIncomes = async (req, res) => {
 
@@ -82,19 +55,16 @@ export const deleteIncomes = async (req, res) => {
       })
 }
 
-
 export const updateIncome = async (req, res) => {
   const { id } = req.params;
   const { title, description, amount, date, type, category } = req.body;
 
   try {
-    // Find the income by ID
     const income = await IncomeSchema.findById({ _id: id});
     if (!income) {
       return res.status(404).json({ message: 'Income not found' });
     }
 
-    // Update income properties
     income.title = title;
     income.description = description;
     income.amount = amount;
@@ -102,7 +72,6 @@ export const updateIncome = async (req, res) => {
     income.type = type;
     income.category = category;
 
-    // Save the updated income
     await income.save();
 
     res.status(200).json({ message: 'Income updated successfully' });

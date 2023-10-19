@@ -17,6 +17,7 @@ function Navigation({active, setActive}) {
         <NavStyled>
             <div className="user-con">
                 <img src={avatar} alt="" />
+                {/* <img src={user.photoURL} alt="profile picture" /> */}
                 <div className="text">
                     {/* <h2>Pramitha</h2> */}
                     {user && (

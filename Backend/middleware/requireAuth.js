@@ -5,7 +5,7 @@ import  dotenv from 'dotenv'
 dotenv.config()
 
 const requireAuth = async (req, res, next) => {
-  // verify user is authenticated
+
   const { authorization } = req.headers
   console.log(req.headers)
   if (!authorization) {
@@ -16,7 +16,6 @@ const requireAuth = async (req, res, next) => {
 
   try {
     console.log(token)
-    console.log(process.env.JWT_SECRET)
     const { _id } = jwt.verify(token, process.env.JWT_SECRET)
     console.log(_id)
     req.user = await User.findOne({ _id }).select('_id')

@@ -124,7 +124,7 @@ const Form = ({ isDarkMode }) => {
           onChange={handleInput("description")}
           style={{
             color: isDarkMode ? "#fff" : "rgba(34, 34, 96, 1)",
-            background: isDarkMode ? "#222" : "transparent", // Background color in dark mode
+            background: isDarkMode ? "#222" : "transparent", 
           }}
         ></textarea>
       </div>

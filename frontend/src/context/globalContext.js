@@ -10,9 +10,6 @@ import { useDispatch } from "react-redux";
 const BASE_URL = "http://localhost:8000/api/v1/";
 
 const GlobalContext = React.createContext();
-  // console.log(token);
-
-
 
 export const GlobalProvider = ({ children }) => {
   const [incomes, setIncomes] = useState([]);
@@ -20,17 +17,11 @@ export const GlobalProvider = ({ children }) => {
   const [error, setError] = useState(null);
 
   const dispatch = useDispatch();
-
-  
   // const { user } = useSelector(selectUser);
 
-
-  //calculate incomes
   const addIncome = async (income) => {
-  // const token = JSON.parse(localStorage.getItem("user")).token;
 const token = JSON.parse(localStorage.getItem("user")).token;
 
-  
     const response = await axios.post(`${BASE_URL}add-incomes`, income,{
       headers: {
         Authorization:token,
@@ -42,14 +33,11 @@ const token = JSON.parse(localStorage.getItem("user")).token;
       setError(err.response.data.message);
     }
     );
-      
-  
     getIncomes();
   };
 
   const getIncomes = async () => {
     console.log(localStorage.getItem("user"));
-    // console.log(localStorage.getItem("token"));
     const token = JSON.parse(localStorage.getItem("user")).token;
 
     if (!token) {
@@ -83,19 +71,12 @@ const token = JSON.parse(localStorage.getItem("user")).token;
       },
     }).then((res) => {
       console.log(res);   
-      // setIncomes(res.data);
     }).catch((err) => {
       setError(err.response.data.message);
     }
     );
     getIncomes();
   } 
-
-  // const deleteIncome = async (id) => {
-  //   const res = await axios.delete(`${BASE_URL}delete-incomes/${id}`);
-  //   getIncomes();
-  // };
-
   const updateIncome = async (obj) => {
     const token = JSON.parse(localStorage.getItem("user")).token;
     if (!token) {
@@ -108,7 +89,6 @@ const token = JSON.parse(localStorage.getItem("user")).token;
       },
     }).then((res) => {
       console.log(res);   
-      // setIncomes(res.data);
     }).catch((err) => {
       setError(err.response.data.message);
     }
@@ -116,14 +96,6 @@ const token = JSON.parse(localStorage.getItem("user")).token;
     getIncomes();
   };
 
-  // const updateIncome = async (obj) => {
-  //   console.log(id);
-  //   const url = `${BASE_URL}update-incomes/${obj.id}`;
-  //   const res = await axios.put(url, obj);
-  //   console.log(res);
-  //   getIncomes();
-  // };
-  
   const totalIncome = () => {
     let totalIncome = 0;
     incomes.forEach((income) => {
@@ -156,7 +128,6 @@ const token = JSON.parse(localStorage.getItem("user")).token;
       // console.log(response.data);
     };
 
-  //calculate incomes
   const addExpense = async (income) => {
 
     const token = JSON.parse(localStorage.getItem("user")).token;
@@ -174,27 +145,6 @@ const token = JSON.parse(localStorage.getItem("user")).token;
     
     getExpenses();
   };
-
-  // const getExpenses = async () => {
-  //   if (!localStorage.getItem("token")) {
-  //     return;
-  //   }
-  //   await axios.get(`${BASE_URL}get-expenses`,{
-  //     headers: {
-  //       Authorization:` ${localStorage.getItem("token")}`,
-  //     },
-  //   })
-  //   .then((res) => {
-  //     setExpenses(res.data);
-  //   }).catch((err) => {
-  //     setError(err.response.data.message);
-  //   }
-  //   );
-  //   // setExpenses(response.data);
-  //   // console.log(response.data);
-  // };
-
-
   const deleteExpense = async (id) => {
     const token = JSON.parse(localStorage.getItem("user")).token;
 
@@ -236,20 +186,6 @@ const token = JSON.parse(localStorage.getItem("user")).token;
     getExpenses();
 
   };
-
-
-  // const deleteExpense = async (id) => {
-  //   const res = await axios.delete(`${BASE_URL}delete-expenses/${id}`);
-  //   getExpenses();
-  // };
-
-  // const updateExpense = async (obj) => {
-  //   const url = `${BASE_URL}update-expenses/${obj.id}`;
-  //   const res = await axios.put(url, obj);
-  //   console.log(res);
-  //   getExpenses();
-  // };
-
 
   const totalExpenses = () => {
     let totalIncome = 0;

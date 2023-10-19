@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaLinkedin, FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa'; // Import the relevant icons
+import { FaLinkedin, FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa'; 
 
 const About = () => {
   const location = useLocation();

@@ -2,12 +2,8 @@ import React, { useState } from "react";
 import { useSignup } from "../../hook/useSignup";
 import { Link, Route } from 'react-router-dom';
 import LoginFooter from '../Footer/LoginFooter';
-// import Login from "../Login/Login";
+import Login from "../Login/Login";
 import { email2, facebook, google, loginIcon, password2, signout, signup2 } from "../../utils/Icons";
-// import { facebook, google,loginIcon, signup  } from '../../utils/Icons';
-
-import {auth, provider, providerf} from '../../FirebaseConfig';
-import { FacebookAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 
 const Signup = () => {
   const [email, setEmail] = useState('');
@@ -15,37 +11,12 @@ const Signup = () => {
   const { signup, error, isLoading } = useSignup();
   const [passwordMatchError, setPasswordMatchError] = useState('');
   const [reenteredPassword, setReenteredPassword] = useState('');
-  const handleGoogleSignIn = async () => {
-    try {
-      const auth = getAuth();
-      const provider = new GoogleAuthProvider();
-  
-      const result = await signInWithPopup(auth, provider);
-      console.log(result.user.email)
-      const user = result.user;
-  
-  
-      const isUserRegistered = true;
-  
-      if (!isUserRegistered) {
-        
-        // Perform registration logic here (e.g., save user data to Firebase Firestore).
-      }
-  
-      // After registration or if the user is already registered, set the user state.
-      // setUser(user);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== reenteredPassword) {
       setPasswordMatchError("Passwords do not match");
     } else {
-      //setPasswordMatchError(""); 
       await signup(email, password);
       window.location.reload();
     }
@@ -57,7 +28,7 @@ const Signup = () => {
       flex: 1,
       backgroundColor: '#2A2746',
       overflow: 'auto',
-      maxHeight: '100vh', // Set a maximum height for scrolling
+      maxHeight: '100vh', 
     }}>
     <div className="flex flex-col min-h-screen  " style={{ backgroundColor: '#2A2746' }}>
       <div className="flex justify-center items-center h-full mt-28">
@@ -125,7 +96,6 @@ const Signup = () => {
               <div className="text-white text-center mt-4"> - or - </div>
               <hr className="mt-3"/>
               <button className="w-full mb-4 mt-4 p-2 bg-red-800 text-white font-bold rounded-md hover:bg-green-700"
-              onClick={handleGoogleSignIn}
                         >
                         {google} Continue With Google
                         </button>

@@ -50,17 +50,14 @@ function IncomeItem({
   updateItem,
 }) {
   const [isUpdating, setIsUpdating] = useState(false);
-  const [isEditing, setIsEditing] = useState(false); // New state variable for editing mode
+  const [isEditing, setIsEditing] = useState(false); 
 
   const handleUpdateClick = () => {
-    // Toggle the update form visibility
     setIsUpdating(!isUpdating);
-    // Toggle the editing mode
     setIsEditing(!isEditing);
   };
 
   const handleCancelClick = () => {
-    // Set isUpdating to false to cancel the update process
     setIsUpdating(false);
   };
 
@@ -110,8 +107,6 @@ function IncomeItem({
         return taxi;
       case "food":
         return food;
-
-
       default:
         return "";
     }
@@ -139,7 +134,6 @@ function IncomeItem({
         return rent;
       case "gift":
         return gift;
-      
       default:
         return "";
     }
@@ -212,8 +206,6 @@ function IncomeItem({
           {/* Display income details */}
 
           {isUpdating ? (
-            // Render update form when isUpdating is true
-            // Pass the income details and an onSubmit function to update the income
             <UpdateForm
               id={id}
               title={title}

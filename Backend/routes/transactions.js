@@ -5,20 +5,19 @@ import {
   getIncomes,
   updateIncome,
 } from "../controllers/income.js";
+
 import {
   addExpenses,
   deleteExpenses,
   getExpenses,
   updateExpenses,
-
 } from "../controllers/expenses.js";
 
 import requireAuth from '../middleware/requireAuth.js'
 
 const router = express.Router();
-router.use(requireAuth)
 
-// Middleware to parse JSON data
+router.use(requireAuth)
 router.use(express.json());
 
 router
@@ -31,4 +30,5 @@ router
   .get("/get-expenses", getExpenses)
   .delete("/delete-expenses/:id", deleteExpenses)
   .put('/update-expenses/:id', updateExpenses);
+
 export default router;

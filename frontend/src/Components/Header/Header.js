@@ -33,7 +33,6 @@ Welcome to the Personal Finance Tracker
             <div className="mt-4">
          
         </div>
-            {/* <li>.........</li> */}
           {user && (
             <div>
               <span className="space-x-10 m-5">{user.email}</span>

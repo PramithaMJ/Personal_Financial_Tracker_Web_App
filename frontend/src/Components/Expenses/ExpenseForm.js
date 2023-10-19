@@ -74,14 +74,6 @@ function ExpenseForm({ isDarkMode }) {
           onChange={(date) => {
             setInputState({ ...inputState, date: date });
           }}
-          // customInput={
-          //   <input
-          //     style={{
-          //       color: isDarkMode ? "#fff" : "rgba(34, 34, 96, 1)",
-          //       background: isDarkMode ? "#222" : "transparent",
-          //     }}
-          //   />
-          // }
         />
       </div>
       <div className="selects input-control">

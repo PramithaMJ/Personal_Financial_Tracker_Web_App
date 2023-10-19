@@ -50,8 +50,6 @@ function FullHistory({ isDarkMode }) {
             })}
 
 
-
-
 <div className='font-mono font-extrabold text-3xl text-center'> Income History</div>
 <div className="incomes">
 {incomes.map((income) => {

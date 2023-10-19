@@ -38,7 +38,6 @@ function App() {
 
   const global = useGlobalContext();
 
-  // Toggle dark mode
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
   };
@@ -78,8 +77,6 @@ function App() {
 
   return (
     <div>
-    
-
         <AppContainer>
           <Header isDarkMode={isDarkMode} />
           {orbMemo}
@@ -102,7 +99,6 @@ function App() {
             <MainContent>{displayData()}</MainContent>
           </MainLayout>
           <Footer isDarkMode={isDarkMode} />
-
           <GlobalStyle />
         </AppContainer>
     </div>

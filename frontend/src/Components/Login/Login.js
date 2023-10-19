@@ -7,16 +7,10 @@ import LoginFooter from '../Footer/LoginFooter';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser ,faLock, faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons';
 import { facebook, google,loginIcon, signup as J  } from '../../utils/Icons';
-// im Reg = useSignup();
-// import * as Reg from '../../hook/useSignup';
-//useLogin
 import { useSignup } from '../../hook/useSignup';
-
 import {auth, provider, providerf} from '../../FirebaseConfig';
 import { FacebookAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import axios from 'axios';
-
-
 
 
 const Login = () => {
@@ -24,19 +18,6 @@ const Login = () => {
 
 const [user, setUser] = useState(null);
 const { signup } = useSignup();
-// const handleGoogleSignIn = () => {
-//   signInWithPopup(auth,provider)
-//   .then((result) => {
-//     const user = result.use
-//     console.log(user);
-//     setUser(user);
-//   }
-//   )
-//   .catch((error) => {
-//     console.log(error.message);
-//   }
-//   )
-//}
 
     const handleFacebookSignIn = () => {
         signInWithPopup(auth,providerf).then((result) => {
@@ -50,7 +31,6 @@ const { signup } = useSignup();
         .then((blob) => {
           setProfilePic(URL.createObjectURL(blob));
         });
-
 
     }).catch((error) => {
         console.log(error.message);
@@ -78,18 +58,15 @@ const checkUser = async (email) =>
 }
 
 const passwordGenerator = () => {
-  return "PasswordForFirebase*123"
+  return "PasswordForFirebase*123";
 }
-
 
 
 const handleGoogleSignIn = async () => {
   try {
     const auth = getAuth();
     const provider = new GoogleAuthProvider();
-
     const result = await signInWithPopup(auth, provider);
-    // console.log(result.user.email)
     const user = result.user;
 
 
@@ -97,11 +74,8 @@ const handleGoogleSignIn = async () => {
     // console.log(isUserRegistered);
     if (!isUserRegistered) {
       await signup(user.email, passwordGenerator());
-
     }
-
     await login(user.email, passwordGenerator());
-
   } catch (error) {
     console.log(error.message);
   }
@@ -145,7 +119,6 @@ const handleGoogleSignIn = async () => {
 
    
     <div style={{ display: 'flex', height: '100vh', backgroundColor: 'lightgray', overflow: "auto"}}>
-
     <div style={{ display: 'flex', flexDirection: 'column', flex: 2 }}>
         <div className="h-full flex items-center justify-center"
         style={{flex: 2, position: 'relative' }}>

@@ -19,7 +19,6 @@ import {
 const generateExpenseChartData = (expenses) => {
   const categories = {};
 
-  // Calculate total expenses for each category
   expenses.forEach((expense) => {
     const { category, amount } = expense;
     if (categories[category]) {
@@ -29,7 +28,6 @@ const generateExpenseChartData = (expenses) => {
     }
   });
 
-  // Convert categories object to an array for the chart
   const data = {
     labels: Object.keys(categories), 
     datasets: [
@@ -48,11 +46,9 @@ const generateExpenseChartData = (expenses) => {
 };
 
 
-
 const generateIncomeChartData = (incomes) => {
-  const categories = {}; // Object to store category totals
+  const categories = {}; 
 
-  // Calculate total income for each category
   incomes.forEach((income) => {
     const { category, amount } = income;
     if (categories[category]) {
@@ -62,14 +58,12 @@ const generateIncomeChartData = (incomes) => {
     }
   });
 
-  // Convert categories object to an array for the chart
   const data = {
     labels: Object.keys(categories), 
     datasets: [
       {
         data: Object.values(categories), 
         backgroundColor: [
-          //  colors for each category
           "rgba(75, 192, 192, 0.6)",
           "rgba(255, 99, 132, 0.6)",
           "rgba(54, 162, 235, 0.6)",
@@ -101,25 +95,14 @@ const Dashboard = ({ isDarkMode }) => {
   const expensesPieChartData = generateExpenseChartData(expenses);
   const incomePieChartData = generateIncomeChartData(incomes);
 
-
- // Calculate total income
  const totalIncome2 = incomes.reduce((total, income) => total + income.amount, 0);
 
- // Calculate total expenses
  const totalExpenses2 = expenses.reduce((total, expense) => total + expense.amount, 0);
 
   const barChartData = [
     { name: "Total Income", amount: totalIncome2 },
     { name: "Total Expenses", amount: totalExpenses2 },
   ];
-  // const filterData = (data, query) => {
-  //   return data.filter((item) =>
-  //     item.category.toLowerCase().includes(query.toLowerCase())
-  //   );
-  // };
-
-  // const filteredExpenses = filterData(expenses, searchQuery);
-  // const filteredIncomes = filterData(incomes, searchQuery);
 
   return (
     <DashboardStyled isDarkMode={isDarkMode}>
@@ -134,7 +117,6 @@ const Dashboard = ({ isDarkMode }) => {
         </div>
         <div className="chart-con ">
           <div className="chart-row ">
-            {/* First pie chart (Total Income) */}
             <div className="chart-item transition-transform transform hover:scale-105">
               <Pie data={incomePieChartData} height={150} width={150} />
               <h2 className={isDarkMode ? "dark-mode-text" : ""}>Total Income</h2>
@@ -142,7 +124,6 @@ const Dashboard = ({ isDarkMode }) => {
                 LKR. {totalIncome()}
               </p>
             </div>
-            {/* Second pie chart (Total Expense) */}
             <div className="chart-item transition-transform transform hover:scale-105">
               <Pie data={expensesPieChartData} height={150} width={150} />
               <h2 className={isDarkMode ? "dark-mode-text" : ""}>Total Expense</h2>
@@ -171,14 +152,8 @@ const Dashboard = ({ isDarkMode }) => {
             <p className="transition-transform transform hover:scale-105">LKR.{Math.min(...expenses.map((item) => item.amount))}</p>
             <p className="transition-transform transform hover:scale-105">LKR.{Math.max(...expenses.map((item) => item.amount))}</p>
           </div>
-
-          
         </div>
       </div>
-      
-
-    
-     
     </InnerLayout>
     <BarChart
         width={600}

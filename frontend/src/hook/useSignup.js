@@ -22,13 +22,9 @@ export const useSignup = () => {
       setError(json.error)
     }
     if (response.ok) {
-      // save the user to local storage
       localStorage.setItem('user', JSON.stringify(json))
         window.location.href = "/dashboard";
-      // update the auth context
       dispatch({type: 'LOGIN', payload: json})
-
-      // update loading state
       setIsLoading(false)
       
     }

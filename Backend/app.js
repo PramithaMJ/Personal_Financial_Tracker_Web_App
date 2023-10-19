@@ -17,10 +17,9 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT;
 
-// Middlewares
+
 app.use(express.json());
 app.use(cors());
-//routes
 //readdirSync('./routes').map((route) => app.use('/api/v1', require('./routes/' + route)))
 
 (async () => {
@@ -32,10 +31,7 @@ app.use(cors());
   });
 })();
 app.use("/api/user", userRoutes);
-//use router fromtrans
-// app.use("/api/v1", router);
 
-// Database connection function
 const server = () => {
   connectDB();
   app.listen(PORT, () => {

@@ -80,13 +80,13 @@ const Summary = ({isDarkMode}) => {
     datasets: [
       {
         label: 'Income',
-        data: [2000, 2500, 2200, 2800, 3000, 3200], // Monthly income data
+        data: [2000, 2500, 2200, 2800, 3000, 3200],
         borderColor: 'rgba(75, 192, 192, 1)',
         fill: false,
       },
       {
         label: 'Expenses',
-        data: [1500, 1800, 2000, 2100, 2200, 2300], // Monthly expenses data
+        data: [1500, 1800, 2000, 2100, 2200, 2300],
         borderColor: 'rgba(255, 99, 132, 1)',
         fill: false,
       },
@@ -94,10 +94,10 @@ const Summary = ({isDarkMode}) => {
   };
 
   const doughnutChartData = {
-    labels: Object.keys(categorizedExpenses), // Expense categories
+    labels: Object.keys(categorizedExpenses),
     datasets: [
       {
-        data: Object.values(categorizedExpenses), // Amounts for expenses
+        data: Object.values(categorizedExpenses),
         backgroundColor: [
           'rgba(255, 99, 132, 0.6)',
           'rgba(75, 192, 192, 0.6)',
@@ -114,8 +114,8 @@ const Summary = ({isDarkMode}) => {
       {
         label: 'Expense Categories',
         data: [
-          { x: 10, y: 20, r: 15 }, // Category A
-          { x: 25, y: 10, r: 30 }, // Category B
+          { x: 10, y: 20, r: 15 }, 
+          { x: 25, y: 10, r: 30 },
           
         ],
         backgroundColor: [
@@ -130,9 +130,6 @@ const Summary = ({isDarkMode}) => {
     { name: 'Income', amount: totalIncome },
     { name: 'Expenses', amount: totalExpenses },
   ];
-
-
-
 
   return (
     <SummaryContainer isDarkMode={isDarkMode} >
@@ -218,7 +215,6 @@ const Summary = ({isDarkMode}) => {
         </ChartContainer>
       </ChartRow>
 <div>
-  
       <BarChart width={600} height={300} data={barChartData}>
         <XAxis dataKey="name" stroke="#8884d8" />
         <YAxis />
@@ -227,10 +223,7 @@ const Summary = ({isDarkMode}) => {
         <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
         <Bar dataKey="amount" fill="#8884d8" barSize={30} />
       </BarChart>
-    
-
 </div>
-      
 
     </SummaryContainer>
   );

@@ -11,7 +11,6 @@ export default function Container() {
   
   const [user, setUser] = useState(null)
 
-
   useEffect(() => {
     const user2 = JSON.parse(localStorage.getItem('user'))
   
