@@ -5,34 +5,31 @@ import validator from "validator";
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-
   // username: {
   //   type: String,
   //   required: true,
   //   unique: true,
   //   },
 
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-    },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
 
-    password: {
-      type: String,
-      required: true,
-    },
+  password: {
+    type: String,
+    required: true,
+  },
 
-    profilePicture: {
-      type: String,
-      default: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
-    },
-
-  });
-
+  profilePicture: {
+    type: String,
+    default:
+      "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+  },
+});
 
 userSchema.statics.signup = async function (email, password) {
-  
   if (!email || !password) {
     throw Error("All fields must be filled");
   }
@@ -58,7 +55,6 @@ userSchema.statics.signup = async function (email, password) {
 };
 
 userSchema.statics.login = async function (email, password) {
-
   if (!email || !password) {
     throw Error("All fields must be filled");
   }
@@ -81,9 +77,7 @@ userSchema.statics.login = async function (email, password) {
   return user;
 };
 
-
 userSchema.statics.checkUser = async function (email) {
-
   if (!email) {
     throw Error("All fields must be filled");
   }
