@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   backend:
-    image: pramithamj/pft:v1.0.0
+    image: pramithamj/pft_backend:v1.0.0
     ports:
       - "8000:8000"
     environment:
