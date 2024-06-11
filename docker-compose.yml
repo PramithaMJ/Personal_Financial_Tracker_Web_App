@@ -1,21 +1,31 @@
 version: "3.8"
 
 services:
+
+  mongodb:
+    image: "mongo"
+    volumes:
+      - data:/data/db
+
   backend:
-    image: pramithamj/pft_backend:v1.0.0
+    build: ./Backend
     ports:
       - "8000:8000"
     environment:
       - MONGODB_URL=mongodb://mongodb:27017/pft-mern
       - JWT_SECRET=${JWT_SECRET}
       - PORT=8000
-    depends_on:
-      - mongodb
     env_file:
       - .env
+    volumes:
+      - logs:/app/logs
+      - ./Backend:/app
+      - /app/node_modules
+    depends_on:
+      - mongodb
 
   frontend:
-    image: pramithamj/pft_frontend:v1.0.0
+    build: ./Frontend
     ports:
       - "3000:3000"
     environment:
@@ -23,13 +33,13 @@ services:
       - FIREBASE_PASSWORD=${FIREBASE_PASSWORD}
     env_file:
       - .env
-
-  mongodb:
-    image: mongo:latest
-    ports:
-      - "27017:27017"
     volumes:
-      - mongodbdata:/data/db
+      - ./Frontend/src:/app/src
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
 
 volumes:
-  mongodbdata:
+  data:
+  logs:
